@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div wicket:id="menuPanel"></div>
+        <form wicket:id="mailForm" >
+            <p>
+                To:
+                <input type="text" wicket:id="receiver" size="50"/>
+            </p>
+            <p>
+                Title:
+                <input type="text" wicket:id="title" size="50"/>
+            </p>
+            <p>
+                Message:
+                <textarea type="text" wicket:id="message" rows="10" cols="50"/>
+            </p>
+            <p>
+                <input type="submit" wicket:id = "sentMail" value="Sent mail" /> 
+            </p>
+            <p>
+                <input type="submit" wicket:id = "saveDrafts" value="Save draft" /> 
+            </p>
+        </form>  
+    </body>
+</html>

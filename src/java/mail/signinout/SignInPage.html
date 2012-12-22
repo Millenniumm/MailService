@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:wicket="http://wicket.apache.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>SignInPage</title>
+        <script type="text/javascript" src="mail/style/bootstrap.js"></script>
+    </head>
+    <body>
+        <h3>Sign In!</h3>
+        <span wicket:id = "feedback"/>
+        <form id="form" wicket:id="SignInForm">
+            <p><label>Username:</label><input type="text" wicket:id="username"/></p>
+            <p><label>Password:</label><input type="password" wicket:id="password"/></p>
+            <input type="submit" value="Sign in!"/>
+        </form>
+        <a wicket:id="regPage">Create new account</a>
+    </body>
+</html>

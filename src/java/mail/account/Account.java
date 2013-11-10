@@ -8,7 +8,8 @@ public class Account {
     private String persCode;
     private String name;
     private String surname;
-    
+    private Boolean admin;
+
     public Account() {
     }
 
@@ -60,4 +61,13 @@ public class Account {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+    
+    public Boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
+    }
+    
 }

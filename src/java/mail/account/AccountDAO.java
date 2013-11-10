@@ -8,10 +8,8 @@ import mail.dbconnection.DBConnection;
 public class AccountDAO {
 
     public static void addNewAccount(String login, String password, String name, String surname, String age, String persCode) {
-        
-            String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "','" + name +"','" + surname + "','" + age + "','" + persCode+"')";
+            String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "','" + name +"','" + surname + "','" + age + "','" + persCode +"')";
             DBConnection.executeUpdate(insert);
-
     }
 
     public static List<Account> getAccountList() {

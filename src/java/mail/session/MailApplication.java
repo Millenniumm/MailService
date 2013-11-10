@@ -1,6 +1,6 @@
 package mail.session;
 
-import mail.inbox.InboxPage;
+import mail.main.MainPage;
 import mail.signinout.SignInPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
@@ -18,7 +18,7 @@ public class MailApplication extends WebApplication {
 
     @Override
     public Class<? extends Page> getHomePage() {
-        return InboxPage.class;
+        return MainPage.class;
     }
     
     @Override

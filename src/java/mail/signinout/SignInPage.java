@@ -1,6 +1,6 @@
 package mail.signinout;
 
-import mail.inbox.InboxPage;
+import mail.main.MainPage;
 import mail.registration.RegistrationPage;
 import mail.session.SignInSession;
 import org.apache.wicket.markup.html.WebPage;
@@ -43,7 +43,7 @@ public final class SignInPage extends WebPage {
         public final void onSubmit() {
             SignInSession session = getMySession();
             if (session.signIn(getUsername(), getPassword())) {
-                setResponsePage(InboxPage.class);
+                setResponsePage(MainPage.class);
             } else {
                 String errmsg = getString("loginError", null, "Unable to sign you in");
                 error(errmsg);

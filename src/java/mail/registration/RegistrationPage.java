@@ -38,13 +38,14 @@ public class RegistrationPage extends WebPage {
                 if (AccountDAO.checkLogin(username) == true) {
                     error("This login alredy taken");
                 } else {
-                    AccountDAO.addNewAccount(username, password,name,surname, age, persCode);
+                    AccountDAO.addNewAccount(username, password, name, surname, age, persCode);
                     setResponsePage(SignInPage.class);
                 }
             }
         };
         Form registerForm = new Form("registerForm");
-        registerForm.add(loginEnter, passwordEnter,nameEnter,surnameEnter,ageEnter,persCodeEnter, createButton);
+
+        registerForm.add(loginEnter, passwordEnter, nameEnter, surnameEnter, ageEnter, persCodeEnter, createButton);
         add(registerForm);
     }
 }

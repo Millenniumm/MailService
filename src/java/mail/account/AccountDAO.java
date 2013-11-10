@@ -7,9 +7,9 @@ import mail.dbconnection.DBConnection;
 
 public class AccountDAO {
 
-    public static void addNewAccount(String login, String password) {
+    public static void addNewAccount(String login, String password, String name, String surname, String age, String persCode) {
         
-            String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "')";
+            String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "','" + name +"','" + surname + "','" + age + "','" + persCode+"')";
             DBConnection.executeUpdate(insert);
 
     }
@@ -20,9 +20,15 @@ public class AccountDAO {
             String select = "SELECT * FROM account";
             ResultSet query = DBConnection.executeQuery(select);
             while (query.next()) {
+                
                 String login = query.getString("login");
                 String password = query.getString("password");
-                list.add(new Account(login, password));
+                String name = query.getString("name");
+                String surname = query.getString("surname");
+                String age = query.getString("age");
+                String persCode = query.getString("persCode");
+                
+                list.add(new Account(login, password, name, surname, age, persCode));
             }
             return list;
         } catch (Exception e) {

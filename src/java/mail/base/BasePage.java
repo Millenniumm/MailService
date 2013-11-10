@@ -36,7 +36,7 @@ public abstract class BasePage extends WebPage {
 
             BookmarkablePageLink link = new BookmarkablePageLink("link", ReadMailPage.class, pageParameters.set("id", mail.getID()));
             parent.add(link);
-ывапвплраывп
+
             link.add(new Label("mail", "Title: " + mail.getTitle() + " From: " + mail.getSender()));
         }
     }

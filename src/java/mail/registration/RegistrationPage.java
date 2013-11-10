@@ -22,7 +22,7 @@ public class RegistrationPage extends WebPage {
         final TextField nameEnter = new TextField("nameEnter",new PropertyModel<String>(acc,"name"));
         final TextField surnameEnter = new TextField("surnameEnter",new PropertyModel<String>(acc,"surname"));
         final TextField ageEnter = new TextField("ageEnter",new PropertyModel<String>(acc,"age"));
-        final TextField persCodeEnter = new TextField("perCodeEnter",new PropertyModel<String>(acc,"persCode"));
+        final TextField perCodeEnter = new TextField("perCodeEnter",new PropertyModel<String>(acc,"persCode"));  
                                
         add(new FeedbackPanel("error"));
         Button createButton = new Button("Create") {
@@ -33,19 +33,19 @@ public class RegistrationPage extends WebPage {
                 String name = nameEnter.getValue();
                 String surname = surnameEnter.getValue();
                 String age = ageEnter.getValue();
-                String persCode = persCodeEnter.getValue();
+                String persCode = perCodeEnter.getValue();
                 
                 if (AccountDAO.checkLogin(username) == true) {
                     error("This login alredy taken");
                 } else {
-                    AccountDAO.addNewAccount(username, password,name,surname, age, persCode);
+                    AccountDAO.addNewAccount(username, password, name, surname, age, persCode);
                     setResponsePage(SignInPage.class);
                 }
 
             }
         };
         Form registerForm = new Form("registerForm");
-        registerForm.add(loginEnter, passwordEnter, createButton);
+        registerForm.add(loginEnter, passwordEnter, nameEnter, surnameEnter, ageEnter, perCodeEnter, createButton);
         add(registerForm);
     }
 }

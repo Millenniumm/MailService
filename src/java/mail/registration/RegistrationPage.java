@@ -22,7 +22,7 @@ public class RegistrationPage extends WebPage {
         final TextField nameEnter = new TextField("nameEnter",new PropertyModel<String>(acc,"name"));
         final TextField surnameEnter = new TextField("surnameEnter",new PropertyModel<String>(acc,"surname"));
         final TextField ageEnter = new TextField("ageEnter",new PropertyModel<String>(acc,"age"));
-        final TextField persCodeEnter = new TextField("perCodeEnter",new PropertyModel<String>(acc,"persCode"));
+        final TextField persCodeEnter = new TextField("persCodeEnter",new PropertyModel<String>(acc,"persCode"));
                                
         add(new FeedbackPanel("error"));
         Button createButton = new Button("Create") {
@@ -41,11 +41,10 @@ public class RegistrationPage extends WebPage {
                     AccountDAO.addNewAccount(username, password,name,surname, age, persCode);
                     setResponsePage(SignInPage.class);
                 }
-
             }
         };
         Form registerForm = new Form("registerForm");
-        registerForm.add(loginEnter, passwordEnter, createButton);
+        registerForm.add(loginEnter, passwordEnter,nameEnter,surnameEnter,ageEnter,persCodeEnter, createButton);
         add(registerForm);
     }
 }

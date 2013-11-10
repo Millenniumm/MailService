@@ -13,7 +13,7 @@ public class DBConnection {
     public static Statement getStatement() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "test", "test123");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "root");
             Statement stmt = (Statement) con.createStatement();
             return stmt;
         } catch (Exception e) {

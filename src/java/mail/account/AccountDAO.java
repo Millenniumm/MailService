@@ -9,7 +9,7 @@ public class AccountDAO {
 
     public static void addNewAccount(String login, String password) {
         
-            String insert = "INSERT INTO Account VALUES ('" + login + "','" + password + "')";
+            String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "')";
             DBConnection.executeUpdate(insert);
 
     }
@@ -17,7 +17,7 @@ public class AccountDAO {
     public static List<Account> getAccountList() {
         try {
             List<Account> list = new ArrayList<Account>();
-            String select = "SELECT * FROM Account";
+            String select = "SELECT * FROM account";
             ResultSet query = DBConnection.executeQuery(select);
             while (query.next()) {
                 String login = query.getString("login");
@@ -33,7 +33,7 @@ public class AccountDAO {
     public static boolean checkLogin(String login) {
         boolean bool = false;
         try {
-            String select= "SELECT login FROM Account";
+            String select= "SELECT login FROM account";
             ResultSet query = DBConnection.executeQuery(select);
             while (query.next()) {
                 String username = query.getString("login");

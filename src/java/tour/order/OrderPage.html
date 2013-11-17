@@ -3,19 +3,14 @@
 <html xmlns:wicket="http://wicket.apache.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>OrderPage</title>
+        <title>Order Page</title>
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
         <form wicket:id="OrderPageForm">
-            
-            <label>Country  : </label>
-            
-            <label>Hotel : </label>
-            
-            <label>Tour : </label>
-            
-            
+            <select wicket:id="countryDropDown"></select>
+            <select wicket:id="hotelDropDown"></select>
+            <select wicket:id="tourDropDown"></select>
             <input type="submit" />
         </form>
     </body>

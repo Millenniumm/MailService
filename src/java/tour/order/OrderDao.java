@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class OrderDao {
 
-    public void addNewOrder(String value, String value0, String value1) {
+    public void addNewOrder(String country, String hotel, String tour) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

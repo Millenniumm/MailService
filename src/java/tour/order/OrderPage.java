@@ -17,6 +17,7 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -30,17 +31,19 @@ public final class OrderPage extends WebPage {
 
     public OrderPage() {
         super();
+        add(new BookmarkablePageLink<mail.main.MainPage>("MainPage",mail.main.MainPage.class));
         Form<?> form = new OrderPageForm("OrderPageForm");
         add(form);
     }
 
     public OrderPage(PageParameters params) {
         //TODO:  process page parameters
+        
     }
 
     public final class OrderPageForm extends Form<Void> {
 
-        // choose country[id ,name], after that hotels[id,cointryFkId,name,price] can be chousen and tours[id,cointryFkId,name,description,price]
+        // choose country[id ,name], after that hotels[id,cointryFkId,name,city,price] can be chousen and tours[id,cointryFkId,name,description,price]
         private OrderDao orderDao = new OrderDao();
 
         private final Map<String, List<String>> townOptions = new HashMap<String, List<String>>();
@@ -54,13 +57,13 @@ public final class OrderPage extends WebPage {
         public OrderPageForm(String id) {
             super(id);
 //TODO: chage data source to DAO !
-            townOptions.put("France",Arrays.asList("Paris", "SomeOtherTown", "HotTown"));
+            townOptions.put("France",Arrays.asList("Paris - Hilton", "SomeOtherTown - Hilton", "HotTown - Hilton"));
             tourOptions.put("France", Arrays.asList("Bus tour!","Boat tour!","Plane Tour"));
             
-            townOptions.put("Latvija",Arrays.asList("Riga","Jurmala","Jelgava"));
+            townOptions.put("Latvija",Arrays.asList("Riga - Radison","Jurmala - Radison","Jelgava - Radison"));
             tourOptions.put("Latvija",Arrays.asList("Bus tour!","Boat tour!","Plane Tour"));
             
-            townOptions.put("Nigeria",Arrays.asList("Nigger","Bigger","BlackTown"));
+            townOptions.put("Nigeria",Arrays.asList("Nigger - Mukumakavaka","Bigger - Mukumakavaka","BlackTown - Mukumakavaka"));
             tourOptions.put("Nigeria",Arrays.asList("Bus tour! With niggers!","Boat tour! With alligators!","Plane Tour! Last in you life!"));
                     
             IModel<List<? extends String>> makeCountryChoises = new AbstractReadOnlyModel<List<? extends String>>() {
@@ -117,6 +120,7 @@ public final class OrderPage extends WebPage {
             add(countryDropDown);
             add(hotelDropDown);
             add(tourDropDown);
+            
         }
 
         public String getSelectedOption() {

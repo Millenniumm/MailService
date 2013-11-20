@@ -5,12 +5,16 @@
  */
 package tour.order;
 
+import tour.order.models.Country;
+import tour.order.models.OrderObject;
+import tour.order.models.Order;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import mail.session.SignInSession;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -31,14 +35,14 @@ public final class OrderPage extends WebPage {
 
     public OrderPage() {
         super();
-        add(new BookmarkablePageLink<mail.main.MainPage>("MainPage",mail.main.MainPage.class));
+        add(new BookmarkablePageLink<mail.main.MainPage>("MainPage", mail.main.MainPage.class));
         Form<?> form = new OrderPageForm("OrderPageForm");
         add(form);
     }
 
     public OrderPage(PageParameters params) {
         //TODO:  process page parameters
-        
+
     }
 
     public final class OrderPageForm extends Form<Void> {
@@ -46,7 +50,9 @@ public final class OrderPage extends WebPage {
         // choose country[id ,name], after that hotels[id,cointryFkId,name,city,price] can be chousen and tours[id,cointryFkId,name,description,price]
         private OrderDao orderDao = new OrderDao();
 
-        private final Map<String, List<String>> townOptions = new HashMap<String, List<String>>();
+        SignInSession session = getMySession();
+
+        private final Map<String, List<String>> hotelOptions = new HashMap<String, List<String>>();
         private final Map<String, List<String>> tourOptions = new HashMap<String, List<String>>();
         private final DropDownChoice<String> countryDropDown;
         private DropDownChoice<String> hotelDropDown;
@@ -56,27 +62,37 @@ public final class OrderPage extends WebPage {
 
         public OrderPageForm(String id) {
             super(id);
-//TODO: chage data source to DAO !
-            townOptions.put("France",Arrays.asList("Paris - Hilton", "SomeOtherTown - Hilton", "HotTown - Hilton"));
-            tourOptions.put("France", Arrays.asList("Bus tour!","Boat tour!","Plane Tour"));
-            
-            townOptions.put("Latvija",Arrays.asList("Riga - Radison","Jurmala - Radison","Jelgava - Radison"));
-            tourOptions.put("Latvija",Arrays.asList("Bus tour!","Boat tour!","Plane Tour"));
-            
-            townOptions.put("Nigeria",Arrays.asList("Nigger - Mukumakavaka","Bigger - Mukumakavaka","BlackTown - Mukumakavaka"));
-            tourOptions.put("Nigeria",Arrays.asList("Bus tour! With niggers!","Boat tour! With alligators!","Plane Tour! Last in you life!"));
-                    
+
+            List<Country> countries = orderDao.getCountries();
+
+            for (Country country : countries) {
+                List<OrderObject> hotels = orderDao.getHotels(country.getName());
+                List<OrderObject> tours = orderDao.getTours(country.getName());
+
+                hotelOptions.put(country.getName(), getNames(hotels,country.getName()));
+                tourOptions.put(country.getName(), getNames(tours,country.getName()));
+            }
+
+            hotelOptions.put("France", Arrays.asList("Paris - Hilton", "SomeOtherTown - Hilton", "HotTown - Hilton"));
+            tourOptions.put("France", Arrays.asList("Bus tour!", "Boat tour!", "Plane Tour"));
+
+            hotelOptions.put("Latvija", Arrays.asList("Riga - Radison", "Jurmala - Radison", "Jelgava - Radison"));
+            tourOptions.put("Latvija", Arrays.asList("Bus tour!", "Boat tour!", "Plane Tour"));
+
+            hotelOptions.put("Nigeria", Arrays.asList("Nigger - Mukumakavaka", "Bigger - Mukumakavaka", "BlackTown - Mukumakavaka"));
+            tourOptions.put("Nigeria", Arrays.asList("Bus tour! With niggers!", "Boat tour! With alligators!", "Plane Tour! Last in you life!"));
+
             IModel<List<? extends String>> makeCountryChoises = new AbstractReadOnlyModel<List<? extends String>>() {
                 @Override
                 public List<String> getObject() {
-                    return new ArrayList<String>(townOptions.keySet());
+                    return new ArrayList<String>(hotelOptions.keySet());
                 }
             };
 
             IModel<List<? extends String>> modelTownChoices = new AbstractReadOnlyModel<List<? extends String>>() {
                 @Override
                 public List<String> getObject() {
-                    List<String> models = townOptions.get(selectedOption);
+                    List<String> models = hotelOptions.get(selectedOption);
                     if (models == null) {
                         models = Collections.emptyList();
                     }
@@ -116,11 +132,11 @@ public final class OrderPage extends WebPage {
                         }
                     }
             );
-            
+
             add(countryDropDown);
             add(hotelDropDown);
             add(tourDropDown);
-            
+
         }
 
         public String getSelectedOption() {
@@ -131,9 +147,24 @@ public final class OrderPage extends WebPage {
             this.selectedOption = selectedOption;
         }
 
+        private SignInSession getMySession() {
+            return (SignInSession) getSession();
+        }
+
         @Override
         public final void onSubmit() {
-            orderDao.addNewOrder(countryDropDown.getValue(), hotelDropDown.getValue(), tourDropDown.getValue());
+            orderDao.addNewOrder(countryDropDown.getValue(), hotelDropDown.getValue(), tourDropDown.getValue(), session.getUser());
         }
+
+        private List<String> getNames(List<OrderObject> orderObjects,String criteria) {
+            List<String> pickedList = new ArrayList<String>();
+            for(OrderObject orderObject: orderObjects){
+                if(orderObject.getName().equals(criteria)){
+                    pickedList.add(orderObject.getName());
+                }
+            }
+            return pickedList;
+        }
+
     }
 }

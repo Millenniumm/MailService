@@ -5,7 +5,14 @@
  */
 package tour.order;
 
+import tour.order.models.Hotel;
+import tour.order.models.Country;
+import tour.order.models.OrderObject;
+import tour.order.models.Tour;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
+import mail.dbconnection.DBConnection;
 
 /**
  *
@@ -13,20 +20,51 @@ import java.util.ArrayList;
  */
 public class OrderDao {
 
-    public void addNewOrder(String country, String hotel, String tour) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addNewOrder(String country, String hotel, String tour, String user) {
+        String insert = "INSERT INTO orders VALUES ('" + country + "','" + hotel + "','" + tour + "','" + user + "')";
+        DBConnection.executeUpdate(insert);
     }
-    
-    public ArrayList<String> getCountries(){
-        return null;
+
+    public List<Country> getCountries() {
+        try {
+            List<Country> list = new ArrayList<Country>();
+            String select = "SELECT * FROM countrys";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                list.add(new Country(query.getString("name"), query.getDouble("cost")));
+            }
+            return list;
+        } catch (Exception e) {
+            return null;
+        }
     }
-    
-    public ArrayList<String> getHotels(){
-        return null;
+
+    public List<OrderObject> getHotels(String country) {
+        try {
+            List<OrderObject> list = new ArrayList<OrderObject>();
+            String select = "SELECT * FROM hotels where coutryFk = '"+ country +"'";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                list.add(new Hotel(query.getString("name"), query.getDouble("cost"), query.getString("countryFk")));
+            }
+            return list;
+        } catch (Exception e) {
+            return null;
+        }
     }
-    
-    public ArrayList<String> getTours(){
-        return null;
+
+    public List<OrderObject> getTours(String country) {
+        try {
+            List<OrderObject> list = new ArrayList<OrderObject>();
+            String select = "SELECT * FROM tours where coutryFk = '"+ country +"'";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                list.add(new Tour(query.getString("name"), query.getDouble("cost"), query.getString("countryFk")));
+            }
+            return list;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 }

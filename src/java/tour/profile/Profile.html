@@ -7,7 +7,21 @@
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
-        <span wicket:id='menuPanel'/>
-        <h1>Profile</h1>
+        <span wicket:id="menuPanel"/>
+        <form wicket:id="profileForm">
+            <h1>Profile:</h1>
+            <p>Name: <input type="text" placeholder="name" wicket:id="yourName"/></p>
+            <p>Surname: <input type="text" placeholder="surname" wicket:id="yourSurname"/></p>
+            <p>Age: <input type="text" placeholder="age" wicket:id="yourAge"/></p>
+            <p>Personal Code: <input type="text" placeholder="personal code" wicket:id="yourPerCode"/></p>
+            <input type="submit" wicket:id="saveChanges" value="Save"/>
+        </form>
+        <form wicket:id="passwordForm">
+            <h1>Password Change:</h1>
+            <p>Old Password: <input type="password" placeholder="old password" wicket:id="oldPassword"/></p>
+            <p>New Password: <input type="password" placeholder="new password" wicket:id="newPassword"/></p>
+            <p>Repeat New Password: <input type="password" placeholder="repeat new password" wicket:id="repeatNewPassword"/></p>
+            <input type="submit" wicket:id="savePw" value="Change password"/>
+        </form>
     </body>
 </html>

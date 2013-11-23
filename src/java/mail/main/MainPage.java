@@ -2,8 +2,7 @@ package mail.main;
 
 import mail.base.BasePage;
 import mail.session.AuthenticatedWebPage;
-import mail.session.SignInSession;
-import org.apache.wicket.markup.html.basic.Label;
+import mail.menupanel.MenuPanel;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import tour.order.OrderPage;
 
@@ -19,15 +18,7 @@ import tour.order.OrderPage;
 public final class MainPage extends BasePage implements AuthenticatedWebPage {
 
     public MainPage() {
-
-        SignInSession session = getMySession();
-
-        add(new Label("myLabel", "Welcome :" + session.getUser().toString()));
+        add(new MenuPanel("menuPanel"));
         add(new BookmarkablePageLink<OrderPage>("OrderPage", OrderPage.class));
-
-    }
-
-    private SignInSession getMySession() {
-        return (SignInSession) getSession();
     }
 }

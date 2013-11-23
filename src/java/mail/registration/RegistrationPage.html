@@ -7,22 +7,42 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="CSS/bootstrap.css">
+        <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .form-registration {
+        max-width: 290px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      </style>
     </head>
     <body>
-        <h2>Registration</h2>
+        <div class="container">
         <span wicket:id="error"/>
-        <form wicket:id="registerForm">
-            <p>Enter Username: <input type="text" wicket:id="loginEnter"/></p>
-            <p>Enter Password: <input type="password" wicket:id="passwordEnter"/></p>
-            <p>Enter Name: <input type="text" wicket:id="nameEnter"/></p>
-            <p>Enter Surname: <input type="text" wicket:id="surnameEnter"/></p>
-            <p>Enter Age: <input type="text" wicket:id="ageEnter"/></p>
-<<<<<<< HEAD
-            <p>Enter PersonalCode: <input type="text" wicket:id="persCodeEnter"/></p>
-=======
-            <p>Enter PersonalCode: <input type="text" wicket:id="perCodeEnter"/></p>
->>>>>>> origin/master
-            <input wicket:id="Create" type="submit" value="Create account"/>
+        <form class="form-registration" wicket:id="registerForm">
+            <center><h2>Registration</h2></center>
+            <p><label>Enter Username:</label> <center><input type="text" placeholder="username" wicket:id="loginEnter"/></center></p>
+            <p><label>Enter Password:</label> <center><input type="password" placeholder="password" wicket:id="passwordEnter"/></center></p>
+            <p><label>Enter Name:</label> <center><input type="text" placeholder="name" wicket:id="nameEnter"/></center></p>
+            <p><label>Enter Surname:</label> <center><input type="text" placeholder="surname"wicket:id="surnameEnter"/></center></p>
+            <p><label>Enter Age:</label>    <center><input type="text" placeholder="age" wicket:id="ageEnter"/></center></p>
+            <p><label>Enter Personal Code:</label> <center><input type="text" placeholder="personal code" wicket:id="perCodeEnter"/></center></p>
+            <center><input class="btn btn-success" wicket:id="Create" type="submit" value="Create account"/></center>
         </form>
+        </div>
     </body>
 </html>

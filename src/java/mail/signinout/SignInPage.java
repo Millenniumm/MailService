@@ -11,7 +11,6 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.value.ValueMap;
-import tour.order.OrderPage;
 
 public final class SignInPage extends WebPage {
 
@@ -19,12 +18,6 @@ public final class SignInPage extends WebPage {
 
         add(new FeedbackPanel("feedback"));
         add(new SignInForm("SignInForm"));
-        add(new Link("regPage") {
-            @Override
-            public void onClick() {
-                setResponsePage(RegistrationPage.class);
-            }
-        });
     }
 
     public final class SignInForm extends Form<Void> {
@@ -38,6 +31,12 @@ public final class SignInPage extends WebPage {
 
             add(new TextField<String>(USERNAME, new PropertyModel<String>(properties, USERNAME)));
             add(new PasswordTextField(PASSWORD, new PropertyModel<String>(properties, PASSWORD)));
+            add(new Link("regPage") {
+                @Override
+                public void onClick() {
+                    setResponsePage(RegistrationPage.class);
+                }
+            });
         }
 
         @Override

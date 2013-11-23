@@ -18,13 +18,13 @@ public class RegistrationPage extends WebPage {
     public RegistrationPage() {
 
         final TextField loginEnter = new TextField("loginEnter", new PropertyModel<String>(acc, "login"));
-        final PasswordTextField passwordEnter = new PasswordTextField("passwordEnter", new PropertyModel<String>(acc, "password"));
+        final PasswordTextField passwordEnter = new PasswordTextField("password", new PropertyModel<String>(acc, "password"));
         final TextField nameEnter = new TextField("nameEnter",new PropertyModel<String>(acc,"name"));
         final TextField surnameEnter = new TextField("surnameEnter",new PropertyModel<String>(acc,"surname"));
         final TextField ageEnter = new TextField("ageEnter",new PropertyModel<String>(acc,"age"));
         final TextField perCodeEnter = new TextField("perCodeEnter",new PropertyModel<String>(acc,"persCode"));  
                                
-        add(new FeedbackPanel("error"));
+        FeedbackPanel error = new FeedbackPanel("error");
         Button createButton = new Button("Create") {
             @Override
             public void onSubmit() {
@@ -38,14 +38,21 @@ public class RegistrationPage extends WebPage {
                 if (AccountDAO.checkLogin(username) == true) {
                     error("This login alredy taken");
                 } else {
-                    AccountDAO.addNewAccount(username, password, name, surname, age, persCode);
-                    setResponsePage(SignInPage.class);
+                    if((username.equals(""))||(password.equals(""))||(name.equals(""))||(surname.equals(""))||(age.equals(""))||(persCode.equals("")))
+                    {
+                       error("Fill all required fields");
+                    }
+                    else
+                    {
+                        AccountDAO.addNewAccount(username, password, name, surname, age, persCode);
+                        setResponsePage(SignInPage.class);
+                    }
                 }
 
             }
         };
         Form registerForm = new Form("registerForm");
-        registerForm.add(loginEnter, passwordEnter, nameEnter, surnameEnter, ageEnter, perCodeEnter, createButton);
+        registerForm.add(error, loginEnter, passwordEnter, nameEnter, surnameEnter, ageEnter, perCodeEnter, createButton);
         add(registerForm);
     }
 }

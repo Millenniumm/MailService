@@ -4,7 +4,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>SignInPage</title>
-        <script type="text/javascript" src="mail/style/bootstrap.js"></script>
         <link rel="stylesheet" href="CSS/bootstrap.css"/>
         <style type="text/css">
             body {
@@ -38,12 +37,12 @@
     </head>
     <body>
         <div class="container">
-            <span wicket:id = "feedback"/>
             <form class="form-signin" id="form" wicket:id="SignInForm">
-                <center><h3>Sign In!</h3></center>
+                <center><h3>Sign In</h3></center>
+                <span style="color:red" wicket:id="feedback"/>
                 <p><input type="text" placeholder="Username" wicket:id="username"/></p>
                 <p><input type="password" placeholder="Password" wicket:id="password"/></p>
-                <center><input class="btn btn-primary"type="submit" value="Sign in!"/>     
+                <center><input id="click" class="btn btn-primary" type="submit" value="Sign in!"/>     
                 <label></label>
                 <a wicket:id="regPage">Create new account</a></center>
             </form>

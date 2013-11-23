@@ -15,8 +15,6 @@ import org.apache.wicket.util.value.ValueMap;
 public final class SignInPage extends WebPage {
 
     public SignInPage() {
-
-        add(new FeedbackPanel("feedback"));
         add(new SignInForm("SignInForm"));
     }
 
@@ -28,7 +26,8 @@ public final class SignInPage extends WebPage {
 
         public SignInForm(final String id) {
             super(id);
-
+            
+            add(new FeedbackPanel("feedback"));
             add(new TextField<String>(USERNAME, new PropertyModel<String>(properties, USERNAME)));
             add(new PasswordTextField(PASSWORD, new PropertyModel<String>(properties, PASSWORD)));
             add(new Link("regPage") {

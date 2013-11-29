@@ -10,7 +10,7 @@ package tour.order.models;
  *
  * @author Deniss
  */
-public class Country extends OrderObject{
+public class Country {
 
     private String name;
     private Double cost;

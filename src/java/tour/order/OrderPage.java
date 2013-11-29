@@ -57,30 +57,25 @@ public final class OrderPage extends WebPage {
         private final DropDownChoice<String> countryDropDown;
         private DropDownChoice<String> hotelDropDown;
         private DropDownChoice<String> tourDropDown;
+        List<OrderObject> hotels;
+        List<OrderObject> tours;
+        List<Country> countries;
         private String selectedOption;
+        private String selectedHotel;
+        private String selectedTour;
         Order order = new Order();
 
         public OrderPageForm(String id) {
             super(id);
-
-            List<Country> countries = orderDao.getCountries();
+            countries = orderDao.getCountries();
 
             for (Country country : countries) {
-                List<OrderObject> hotels = orderDao.getHotels(country.getName());
-                List<OrderObject> tours = orderDao.getTours(country.getName());
+                hotels = orderDao.getHotels(country.getName());
+                tours = orderDao.getTours(country.getName());
 
-                hotelOptions.put(country.getName(), getNames(hotels,country.getName()));
-                tourOptions.put(country.getName(), getNames(tours,country.getName()));
+                hotelOptions.put(country.getName(), getNames(hotels, country.getName()));
+                tourOptions.put(country.getName(), getNames(tours, country.getName()));
             }
-
-            hotelOptions.put("France", Arrays.asList("Paris - Hilton", "SomeOtherTown - Hilton", "HotTown - Hilton"));
-            tourOptions.put("France", Arrays.asList("Bus tour!", "Boat tour!", "Plane Tour"));
-
-            hotelOptions.put("Latvija", Arrays.asList("Riga - Radison", "Jurmala - Radison", "Jelgava - Radison"));
-            tourOptions.put("Latvija", Arrays.asList("Bus tour!", "Boat tour!", "Plane Tour"));
-
-            hotelOptions.put("Nigeria", Arrays.asList("Nigger - Mukumakavaka", "Bigger - Mukumakavaka", "BlackTown - Mukumakavaka"));
-            tourOptions.put("Nigeria", Arrays.asList("Bus tour! With niggers!", "Boat tour! With alligators!", "Plane Tour! Last in you life!"));
 
             IModel<List<? extends String>> makeCountryChoises = new AbstractReadOnlyModel<List<? extends String>>() {
                 @Override
@@ -115,10 +110,10 @@ public final class OrderPage extends WebPage {
                     new PropertyModel<String>(this, "selectedOption"), makeCountryChoises);
 
             hotelDropDown = new DropDownChoice<String>("hotelDropDown",
-                    new Model<String>(), modelTownChoices);
+                    new PropertyModel<String>(this,"selectedHotel"), modelTownChoices);
 
             tourDropDown = new DropDownChoice<String>("tourDropDown",
-                    new Model<String>(), modelTourChoices);
+                    new PropertyModel<String>(this,"selectedTour"), modelTourChoices);
 
             hotelDropDown.setOutputMarkupId(true);
             tourDropDown.setOutputMarkupId(true);
@@ -150,16 +145,32 @@ public final class OrderPage extends WebPage {
         private SignInSession getMySession() {
             return (SignInSession) getSession();
         }
+        
+        public String getSelectedHotel() {
+            return selectedHotel;
+        }
+
+        public void setSelectedHotel(String selectedHotel) {
+            this.selectedHotel = selectedHotel;
+        }
+
+        public String getSelectedTour() {
+            return selectedTour;
+        }
+
+        public void setSelectedTour(String selectedTour) {
+            this.selectedTour = selectedTour;
+        }
 
         @Override
         public final void onSubmit() {
-            orderDao.addNewOrder(countryDropDown.getValue(), hotelDropDown.getValue(), tourDropDown.getValue(), session.getUser());
+            orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), session.getUser());
         }
 
-        private List<String> getNames(List<OrderObject> orderObjects,String criteria) {
+        private List<String> getNames(List<OrderObject> orderObjects, String criteria) {
             List<String> pickedList = new ArrayList<String>();
-            for(OrderObject orderObject: orderObjects){
-                if(orderObject.getName().equals(criteria)){
+            for (OrderObject orderObject : orderObjects) {
+                if (orderObject.getCountry().equals(criteria)) {
                     pickedList.add(orderObject.getName());
                 }
             }

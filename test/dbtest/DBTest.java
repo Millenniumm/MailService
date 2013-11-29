@@ -1,26 +1,26 @@
 package dbtest;
 
+import java.util.List;
 import junit.framework.TestCase;
+import tour.order.OrderDao;
+import tour.order.models.Country;
+import tour.order.models.OrderObject;
 
 public class DBTest extends TestCase {
 
-    public void testAddToDB(){
-        Account acc = new Account();
-        acc.add("Valentin", "Smirnov");
+    public void testCountrysDB(){
+        OrderDao dao =new OrderDao();
+        List<Country> countrys = dao.getCountries();
+        assertFalse(countrys.isEmpty());
     }
-    
-    public void testSelectFromDB(){
-        Account acc = new Account();
-        acc.check("Valentin");
+    public void testHotels(){
+        OrderDao dao =new OrderDao();
+        List<OrderObject> orderobject = dao.getHotels("France");
+        assertFalse(orderobject.isEmpty());
     }
-    
-    public void testDeleteFromDB(){
-        Account acc = new Account();
-        acc.delete("Valentin");
-    }
-    
-    public void testUpdateDB(){
-        Account acc = new Account();
-        acc.newPassword("Valentin", "millennium");
+    public void testTours(){
+        OrderDao dao =new OrderDao();
+        List<OrderObject> orderobject = dao.getTours("France");
+        assertFalse(orderobject.isEmpty());
     }
 }

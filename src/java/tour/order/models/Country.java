@@ -10,7 +10,7 @@ package tour.order.models;
  *
  * @author Deniss
  */
-public class Country {
+public class Country extends OrderObject{
 
     private String name;
     private Double cost;
@@ -34,6 +34,11 @@ public class Country {
 
     public void setCost(Double cost) {
         this.cost = cost;
+    }
+
+    @Override
+    public String getCountry() {
+        return null;
     }
     
     

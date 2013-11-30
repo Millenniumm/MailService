@@ -10,9 +10,21 @@
         <a href="thisGetsReplacedAtRuntime" 
                   wicket:id="MainPage">Back to Main</a>
         <form wicket:id="OrderPageForm">
+            
             <select wicket:id="countryDropDown"></select>
+            <label>Cost: </label>
+            <label wicket:id="countryCostLabel"></label>
+            
             <select wicket:id="hotelDropDown"></select>
+            <label>Cost: </label>
+            <label wicket:id="hotelCostLabel"></label>
+            
             <select wicket:id="tourDropDown"></select>
+            <label>Cost: </label>
+            <label wicket:id="tourCostLabel"></label>
+            
+            <label>Total sum :</label>
+            <input type="text" wicket:id="totalCostSumLabel" disabled>         
             <input type="submit" />
         </form>
     </body>

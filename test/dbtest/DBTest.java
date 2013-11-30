@@ -10,17 +10,17 @@ public class DBTest extends TestCase {
 
     public void testCountrysDB(){
         OrderDao dao =new OrderDao();
-        List<Country> countrys = dao.getCountries();
+        List<OrderObject> countrys = dao.getCountries();
         assertFalse(countrys.isEmpty());
     }
     public void testHotels(){
         OrderDao dao =new OrderDao();
-        List<OrderObject> orderobject = dao.getHotels("France");
+        List<OrderObject> orderobject = dao.getHotels();
         assertFalse(orderobject.isEmpty());
     }
     public void testTours(){
         OrderDao dao =new OrderDao();
-        List<OrderObject> orderobject = dao.getTours("France");
+        List<OrderObject> orderobject = dao.getTours();
         assertFalse(orderobject.isEmpty());
     }
 }

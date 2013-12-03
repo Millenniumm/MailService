@@ -1,6 +1,5 @@
 package tour.profile;
 
-import java.util.Iterator;
 import java.util.List;
 import mail.account.Account;
 import mail.account.AccountDAO;
@@ -38,7 +37,7 @@ public final class Profile extends WebPage {
         setSurname(currentAccount.getSurname());
         setAge(currentAccount.getAge());
         setPersCode(currentAccount.getPersCode());
-        
+
         final TextField yourName = new TextField("yourName", new PropertyModel<String>(this, "name"));
         final TextField yourSurname = new TextField("yourSurname", new PropertyModel<String>(this, "surname"));
         final TextField yourAge = new TextField("yourAge", new PropertyModel<String>(this, "age"));
@@ -47,7 +46,12 @@ public final class Profile extends WebPage {
         Button saveButton = new Button("saveChanges") {
             @Override
             public void onSubmit() {
-
+                String login = ((SignInSession) Session.get()).getUser().toString();
+                String name = yourName.getValue();
+                String surname = yourSurname.getValue();
+                String age = yourAge.getValue();
+                String persCode = yourPerCode.getValue();
+                AccountDAO.updateAccount(login,name,surname,age,persCode);
             }
         };
 
@@ -61,6 +65,15 @@ public final class Profile extends WebPage {
         Button changeButton = new Button("savePw") {
             @Override
             public void onSubmit() {
+                String login = ((SignInSession) Session.get()).getUser().toString();
+                String oldpassword = oldPassword.getValue();
+                String newpassword = newPassword.getValue();
+                String repeatnewpassword = repeatNewPassword.getValue();
+                
+                if(newpassword.equals(repeatnewpassword))
+                {
+                    AccountDAO.changePassword(login, newpassword);
+                }
 
             }
         };

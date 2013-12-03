@@ -11,6 +11,16 @@ public class AccountDAO {
             String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "','" + name +"','" + surname + "','" + age + "','" + persCode +"')";
             DBConnection.executeUpdate(insert);
     }
+    
+    public static void updateAccount(String login, String name, String surname, String age, String persCode){
+            String insert = "UPDATE account SET name='" + name + "', surname='" + surname + "', age='" + age + "', persCode='" + persCode + "' WHERE login='" + login + "';";
+            DBConnection.executeUpdate(insert);
+    }
+    
+    public static void changePassword(String login, String newpassword){
+            String update = "UPDATE account SET password='" + newpassword + "' WHERE login='" + login + "'";
+            DBConnection.executeUpdate(update);
+    }
 
     public static List<Account> getAccountList() {
         try {

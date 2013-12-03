@@ -8,36 +8,19 @@ and open the template in the editor.
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS/bootstrap.css">
+        <link rel="stylesheet" href="CSS/stylechange.css">
         <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
+            .form-horizontal {
+                max-width: 400px;
+            }
+            .form-horizontal .control-label {
+                width: 110px;
+            }
 
-      .form-horizontal {
-        max-width: 400px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 0;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .form-horizontal .control-label {
-          width: 110px;
-          text-align: left;
-          margin-left: 35px;
-      }
-      
-      .form-horizontal .controls {
-           margin-left: 150px;
-      }
-      </style>
+            .form-horizontal .controls {
+                margin-left: 150px;
+            }
+        </style>
     </head>
     <body>
         <form class="form-horizontal" wicket:id="registerForm">
@@ -49,35 +32,35 @@ and open the template in the editor.
                     <input type="text" id="inputUsername" placeholder="username" wicket:id="loginEnter"/>
                 </div>
             </div>
-            
+
             <div class="control-group">
                 <label class="control-label" for="inputPassword"><font color="red">*</font> Password: </label>
                 <div class="controls">
                     <input type="password" id="inputPassword" placeholder="password" wicket:id="password"/>
                 </div>
             </div>
-            
+
             <div class="control-group">
                 <label class="control-label" for="inputName"><font color="red">*</font> Name:</label>
                 <div class="controls">
                     <input type="text" id="inputName" placeholder="name" wicket:id="nameEnter"/>
                 </div>
             </div>
-            
+
             <div class="control-group">
                 <label class="control-label" for="inputSurname"><font color="red">*</font> Surname:</label>
                 <div class="controls">
                     <input type="text" id="inputSurname" placeholder="surname" wicket:id="surnameEnter"/>
                 </div>
             </div>
-            
+
             <div class="control-group">
                 <label class="control-label" for="inputAge"><font color="red">*</font> Age:</label>
                 <div class="controls">
                     <input type="text" id="inputAge" placeholder="age" wicket:id="ageEnter"/>
                 </div>
             </div>
-            
+
             <div class="control-group">
                 <label class="control-label" for="inputPc"><font color="red">*</font> Personal Code:</label>
                 <div class="controls">

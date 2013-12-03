@@ -13,7 +13,7 @@ public class MenuPanel extends Panel {
     public MenuPanel(String id) {
         super(id);
         
-        add(new Label("welcome", "Hello, "));
+        add(new Label("welcome", "Welcome, "));
         add(new Link("profileLink"){
            @Override
            public void onClick()

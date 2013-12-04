@@ -61,4 +61,22 @@ public class AccountDAO {
             return bool;
         }
     }
+    
+    public static boolean checkOldPassword(String login, String password) {
+        boolean bool = false;
+        try {
+            String select= "SELECT password FROM account WHERE login='"+login+"'";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                String userpassword = query.getString("password");
+                if (password.equals(userpassword)) {
+                    bool = true;
+                    query.close();
+                }
+            }
+            return bool;
+        } catch (Exception e) {
+            return bool;
+        }
+    }
 }

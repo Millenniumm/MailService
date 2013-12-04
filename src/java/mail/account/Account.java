@@ -9,6 +9,8 @@ public class Account {
     private String name;
     private String surname;
     private Boolean admin;
+    private String newPassword;
+    private String repeatNewPassword;
 
     public Account() {
     }
@@ -70,4 +72,11 @@ public class Account {
         this.admin = admin;
     }
     
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public String getRepeatNewPassword() {
+        return repeatNewPassword;
+    }
 }

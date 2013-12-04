@@ -15,6 +15,7 @@
     <center><div class="panel" wicket:id="menuPanel"/></center>
         <form class="form-horizontal" wicket:id="profileForm">
             <h2>Profile:</h2>
+            <span style="color:green" wicket:id="successP"/>
             <div class="control-group">
                 <label class="control-label" for="inputName">Name:</label>
                 <div class="controls">
@@ -43,6 +44,8 @@
         </form>
         <form class="form-horizontal" wicket:id="passwordForm">
             <h2>Password Change:</h2>
+            <span style="color:green" wicket:id="success"/>
+            <span style="color:red" wicket:id="error"/>
             <div class="control-group">
                 <label class="control-label" for="inputOldPw">Old Password:</label>
                 <div class="controls">

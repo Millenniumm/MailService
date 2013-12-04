@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 
 /**
@@ -37,7 +38,7 @@ public final class Profile extends WebPage {
         setSurname(currentAccount.getSurname());
         setAge(currentAccount.getAge());
         setPersCode(currentAccount.getPersCode());
-
+        FeedbackPanel successP = new FeedbackPanel("successP");
         final TextField yourName = new TextField("yourName", new PropertyModel<String>(this, "name"));
         final TextField yourSurname = new TextField("yourSurname", new PropertyModel<String>(this, "surname"));
         final TextField yourAge = new TextField("yourAge", new PropertyModel<String>(this, "age"));
@@ -52,16 +53,19 @@ public final class Profile extends WebPage {
                 String age = yourAge.getValue();
                 String persCode = yourPerCode.getValue();
                 AccountDAO.updateAccount(login,name,surname,age,persCode);
+                String msg = getString("profileChanged", null, "Profile data changed!");
+                success(msg);
             }
         };
 
         Form profileForm = new Form("profileForm");
-        profileForm.add(yourName, yourSurname, yourAge, yourPerCode, saveButton);
+        profileForm.add(yourName, yourSurname, yourAge, yourPerCode, saveButton, successP);
 
         final PasswordTextField oldPassword = new PasswordTextField("oldPassword", new PropertyModel<String>(acc, "password"));
-        final PasswordTextField newPassword = new PasswordTextField("newPassword", new PropertyModel<String>(acc, "password"));
-        final PasswordTextField repeatNewPassword = new PasswordTextField("repeatNewPassword", new PropertyModel<String>(acc, "password"));
-
+        final PasswordTextField newPassword = new PasswordTextField("newPassword", new PropertyModel<String>(acc, "newPassword"));
+        final PasswordTextField repeatNewPassword = new PasswordTextField("repeatNewPassword", new PropertyModel<String>(acc, "repeatNewPassword"));
+        FeedbackPanel error = new FeedbackPanel("error");
+        FeedbackPanel success = new FeedbackPanel("success");
         Button changeButton = new Button("savePw") {
             @Override
             public void onSubmit() {
@@ -70,16 +74,30 @@ public final class Profile extends WebPage {
                 String newpassword = newPassword.getValue();
                 String repeatnewpassword = repeatNewPassword.getValue();
                 
-                if(newpassword.equals(repeatnewpassword))
+                if(AccountDAO.checkOldPassword(login, oldpassword)==true)
                 {
-                    AccountDAO.changePassword(login, newpassword);
+                    if(newpassword.equals(repeatnewpassword))
+                    {
+                        AccountDAO.changePassword(login, newpassword);
+                        String msg = getString("passwordChanged", null, "Password changed!");
+                        success(msg);
+                    }
+                    else
+                    {
+                        String errmsg = getString("repeatPasswordError", null, "'Repeat new password' do not match 'New Password'");
+                        error(errmsg);
+                    }
                 }
-
-            }
+                else
+                {
+                    String errmsg = getString("oldPasswordError", null, "Wrong old password.");
+                    error(errmsg);
+                }
+                }
         };
-
+        
         Form passwordForm = new Form("passwordForm");
-        passwordForm.add(oldPassword, newPassword, repeatNewPassword, changeButton);
+        passwordForm.add(oldPassword, newPassword, repeatNewPassword, changeButton, error, success);
 
         add(profileForm, passwordForm);
     }

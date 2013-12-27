@@ -4,28 +4,68 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Order Page</title>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" href="CSS/bootstrap.css"/>
+        <link rel="stylesheet" href="CSS/stylechange.css"/>
+        <style type="text/css">
+            .form-horizontal .control-label{
+                width: 150px;
+                text-align: left;
+                margin-left: 0px;
+            }
+
+            .form-horizontal .controls {
+                margin-left: 80px;
+                padding-top: 0px;
+            }
+        </style>
     </head>
     <body>
-        <a href="thisGetsReplacedAtRuntime" 
-                  wicket:id="MainPage">Back to Main</a>
-        <form wicket:id="OrderPageForm">
-            
-            <select wicket:id="countryDropDown"></select>
-            <label>Cost: </label>
-            <label wicket:id="countryCostLabel"></label>
-            
-            <select wicket:id="hotelDropDown"></select>
-            <label>Cost: </label>
-            <label wicket:id="hotelCostLabel"></label>
-            
-            <select wicket:id="tourDropDown"></select>
-            <label>Cost: </label>
-            <label wicket:id="tourCostLabel"></label>
-            
-            <label>Total sum :</label>
-            <input type="text" wicket:id="totalCostSumLabel" disabled>         
-            <input type="submit" />
+        <form class="form-horizontal" wicket:id="OrderPageForm">           
+            <div class="control-group">
+                <label class="control-label" for="countryDrop">Select Country:</label>
+                <div class="controls">
+                     <select id="countryDrop" wicket:id="countryDropDown"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="countryCost">Cost:</label>
+                <div class="controls">
+                     <label id="countryCost" wicket:id="countryCostLabel"></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="hotelDrop">Select Hotel:</label>
+                <div class="controls">
+                     <select id="hotelDrop" wicket:id="hotelDropDown"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="hotelCost">Cost:</label>
+                <div class="controls">
+                     <label id="hotelCost" wicket:id="hotelCostLabel"></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tourDrop">Select Tour:</label>
+                <div class="controls">
+                      <select id="tourDrop" wicket:id="tourDropDown"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tourCost">Cost:</label>
+                <div class="controls">
+                      <label id="tourCost" wicket:id="tourCostLabel"></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="sum">Total sum:</label>
+                <div class="controls">
+                      <input type="text" wicket:id="totalCostSumLabel" disabled/>
+                </div>
+            </div>
+            <center><input class="btn btn-success" type="submit" />
+            <br/><br/>
+            <a href="thisGetsReplacedAtRuntime" wicket:id="MainPage">Back to Main</a></center>
         </form>
     </body>
 </html>

@@ -36,7 +36,6 @@ public final class OrderPage extends WebPage {
 
     public OrderPage() {
         super();
-        add(new BookmarkablePageLink<mail.main.MainPage>("MainPage", mail.main.MainPage.class));
         Form<?> form = new OrderPageForm("OrderPageForm");
         add(form);
     }
@@ -186,6 +185,8 @@ public final class OrderPage extends WebPage {
                             target.add(totalCostSum);
                         }
                     });
+            
+            add(new BookmarkablePageLink<mail.main.MainPage>("MainPage", mail.main.MainPage.class));
 
             add(countryDropDown);
             add(hotelDropDown);

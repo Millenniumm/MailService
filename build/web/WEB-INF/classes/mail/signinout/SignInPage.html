@@ -1,19 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>SignInPage</title>
-        <script type="text/javascript" src="mail/style/bootstrap.js"></script>
+        <link rel="stylesheet" href="CSS/bootstrap.css"/>
+        <link rel="stylesheet" href="CSS/stylechange.css"/>
+        <style type="text/css">
+            .form-horizontal{
+                max-width: 300px;
+            }
+            .form-horizontal .control-label{
+                width: 80px;
+                text-align: left;
+                margin-left: 0px;
+            }
+
+            .form-horizontal .controls {
+                margin-left: 80px;
+                padding-top: 0px;
+            }
+        </style>
+        
     </head>
-    <body>
-        <h3>Sign In!</h3>
-        <span wicket:id = "feedback"/>
-        <form id="form" wicket:id="SignInForm">
-            <p><label>Username:</label><input type="text" wicket:id="username"/></p>
-            <p><label>Password:</label><input type="password" wicket:id="password"/></p>
-            <input type="submit" value="Sign in!"/>
+    <body>    
+        <form class="form-horizontal" wicket:id="SignInForm">
+            <center><h3>Sign In</h3></center>
+            <span style="color:red" wicket:id="feedback"/>
+            <div class="control-group">
+                <label class="control-label" for="inputUsername">Username:</label>
+                <div class="controls">
+                    <input type="text" id="inputUsername" placeholder="username" wicket:id="username"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Password:</label>
+                <div class="controls">
+                    <input type="password" id="inputPassword" placeholder="password" wicket:id="password"/>
+                </div>
+            </div>
+            <center><input id="click" class="btn btn-primary" type="submit" value="Sign in!"/><br/>    
+            <a wicket:id="regPage">Create new account</a></center>
         </form>
-        <a wicket:id="regPage">Create new account</a>
     </body>
 </html>

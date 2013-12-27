@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import mail.dbconnection.DBConnection;
+import tour.order.models.Order;
 
 /**
  *
@@ -20,10 +21,34 @@ import mail.dbconnection.DBConnection;
  */
 public class OrderDao {
 
-    public void addNewOrder(String country, String hotel, String tour, String user, String cost) {
-        String insert = "INSERT INTO orders(country,hotel,tour,user,cost) VALUES "
-                      + "('" + country + "','" + hotel + "','" + tour + "','" + user + "','" + cost + "')";
+    public static void removeOrderById(String id) {
+        String insert = "delete from orders where idorders = '" + id + "';";
         DBConnection.executeUpdate(insert);
+    }
+
+    public void addNewOrder(String country, String hotel, String tour, String user, String cost) {
+        String delete = "INSERT INTO orders(country,hotel,tour,user,cost) VALUES "
+                + "('" + country + "','" + hotel + "','" + tour + "','" + user + "','" + cost + "')";
+        DBConnection.executeUpdate(delete);
+    }
+
+    public static List<Order> getOrders() {
+        try {
+            List<Order> list = new ArrayList<Order>();
+            String select = "SELECT * FROM orders";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                list.add(new Order(query.getString("country"),
+                        query.getString("hotel"),
+                        query.getString("tour"),
+                        query.getString("user"),
+                        query.getString("cost"),
+                        query.getInt("idorders")));
+            }
+            return list;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public List<OrderObject> getCountries() {

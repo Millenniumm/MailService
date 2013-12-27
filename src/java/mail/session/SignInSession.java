@@ -10,6 +10,7 @@ import org.apache.wicket.request.Request;
 public class SignInSession extends AuthenticatedWebSession {
 
     private String userName;
+    private AccountDAO accDAO = new AccountDAO();
 
     protected SignInSession(Request request) {
         super(request);
@@ -18,7 +19,7 @@ public class SignInSession extends AuthenticatedWebSession {
     @Override
     public final boolean authenticate(final String username, final String password) {
 
-        Iterator itr = AccountDAO.getAccountList().iterator();
+        Iterator itr = accDAO.getAccountList().iterator();
         
             if (userName == null) {
 

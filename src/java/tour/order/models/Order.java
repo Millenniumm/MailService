@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package tour.order.models;
 
 /**
@@ -11,10 +10,13 @@ package tour.order.models;
  * @author Deniss
  */
 public class Order {
-    
+
     private String country;
     private String hotel;
     private String tour;
+    private String user;
+    private String cost;
+    private Integer id;
 
     public Order() {
     }
@@ -23,6 +25,23 @@ public class Order {
         this.country = country;
         this.hotel = hotel;
         this.tour = tour;
+    }
+
+    public Order(String country, String hotel, String tour, String user, String cost, Integer id) {
+        this.country = country;
+        this.hotel = hotel;
+        this.tour = tour;
+        this.user = user;
+        this.cost = cost;
+        this.id= id;
+    }
+    
+    public void setId(Integer id){
+        this.id = id;
+    }
+
+    public Integer getId(){
+        return id;
     }
     
     public String getCountry() {
@@ -48,6 +67,29 @@ public class Order {
     public void setTour(String tour) {
         this.tour = tour;
     }
-     
-        
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+    
+    public String getOrder(){
+        return "    " + this.country+
+               "    " + this.hotel+
+               "    " + this.tour+
+               "    " + this.user+
+               "    " + this.cost;
+    }
+
 }

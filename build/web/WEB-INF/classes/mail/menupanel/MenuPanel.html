@@ -6,13 +6,14 @@
     </head>
     <body>
     <wicket:panel>
-        <p><span wicket:id="welcome"/><a wicket:id="exit" href="#">exit</a></p>
-        <a wicket:id="SentPageLink" href="#">Send</a>
-        <a wicket:id="InboxPageLink" href="#">Inbox</a>
-        <a wicket:id="OutboxPageLink" href="#">Outbox</a>
-        <a wicket:id="SpamPageLink" href="#">Spam</a>
-        <a wicket:id="DraftboxPageLink" href="#">Drafts</a>
-        <a wicket:id="TrashPageLink" href="#">Trash</a> 
+        <p>
+            <span wicket:id="welcome"/>
+            <a wicket:id="profileLink" href="#">
+                <span wicket:id="name"/>
+            </a>! 
+            <a wicket:id="adminPage" href="#">admin</a>
+            <a wicket:id="exit" href="#">exit</a>
+        </p>
     </wicket:panel>
 </body>
 </html>

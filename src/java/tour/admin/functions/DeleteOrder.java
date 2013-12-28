@@ -5,10 +5,8 @@
  */
 package tour.admin.functions;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import mail.main.MainPage;
+import mail.registration.RegistrationPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -37,12 +35,15 @@ public final class DeleteOrder extends WebPage {
         form.add(new ListView<Order>("orders", orders) {
             @Override
             protected void populateItem(final ListItem<Order> li) {
+                final PropertyModel buttonId = new PropertyModel(li.getModel(), "getId");
+                
                 li.add(new Label("order", new PropertyModel(li.getModel(), "getOrder")));
-                li.add(new Button("deleteButton") {
+                li.add(new Button("deleteButton",buttonId) {
                     @Override
                     public void onSubmit() {
-                        String id = li.getId();
+                        String id = buttonId.getObject().toString();
                         OrderDao.removeOrderById(id);
+                        setResponsePage(DeleteOrder.class);
                     }
                 });
             }

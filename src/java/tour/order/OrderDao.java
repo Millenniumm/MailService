@@ -32,6 +32,25 @@ public class OrderDao {
         DBConnection.executeUpdate(delete);
     }
 
+    public static List<Order> getOrdersForUser(String user){
+        try {
+            List<Order> list = new ArrayList<Order>();
+            String select = "SELECT * FROM orders where user = '"+user+"';";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                list.add(new Order(query.getString("country"),
+                        query.getString("hotel"),
+                        query.getString("tour"),
+                        query.getString("user"),
+                        query.getString("cost"),
+                        query.getInt("idorders")));
+            }
+            return list;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
     public static List<Order> getOrders() {
         try {
             List<Order> list = new ArrayList<Order>();

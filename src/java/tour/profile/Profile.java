@@ -3,6 +3,7 @@ package tour.profile;
 import java.util.List;
 import mail.account.Account;
 import mail.account.AccountDAO;
+import mail.main.MainPage;
 import mail.menupanel.MenuPanel;
 import mail.session.SignInSession;
 import org.apache.wicket.Session;
@@ -11,9 +12,11 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import tour.header.HeaderPanel;
+import tour.profile.history.UserOrderHistory;
 
 /**
  *
@@ -31,7 +34,8 @@ public final class Profile extends WebPage {
     public Profile() {
         add(new HeaderPanel("headerPanel"));
         add(new MenuPanel("menuPanel"));
-
+        add(new BookmarkablePageLink<MainPage>("MainPage", MainPage.class));
+        add(new BookmarkablePageLink<UserOrderHistory>("HistoryPage", UserOrderHistory.class));
         List<Account> accounts = aO.getAccountList();
         SignInSession session = getMySession();
         Account currentAccount = getAccount(accounts, session.getUser());

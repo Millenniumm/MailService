@@ -20,7 +20,15 @@ public class Order {
 
     public Order() {
     }
-
+    
+    public Order(String country, String hotel, String tour, String user, String cost){
+        this.country = country;
+        this.hotel = hotel;
+        this.tour = tour;
+        this.user = user;
+        this.cost = cost;
+    }
+    
     public Order(String country, String hotel, String tour) {
         this.country = country;
         this.hotel = hotel;
@@ -35,6 +43,7 @@ public class Order {
         this.cost = cost;
         this.id= id;
     }
+   
     
     public void setId(Integer id){
         this.id = id;

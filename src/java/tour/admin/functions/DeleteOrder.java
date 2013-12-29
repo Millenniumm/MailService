@@ -32,8 +32,9 @@ public final class DeleteOrder extends WebPage {
         super();
     }
 
-    public DeleteOrder(PageParameters params) {
+    public DeleteOrder(final PageParameters params) {
         OrderDao orderDao = new OrderDao();
+        final PageParameters pageParams = new PageParameters();
         add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));
         List<Order> orders = OrderDao.getOrdersForUser(params.get("userName").toString());
         Form form = new Form("form");
@@ -51,7 +52,8 @@ public final class DeleteOrder extends WebPage {
                     public void onSubmit() {
                         String id = buttonId.getObject().toString();
                         OrderDao.removeOrderById(id);
-                        setResponsePage(DeleteOrder.class);
+                        pageParams.add("userName", params.get("userName").toString());
+                        setResponsePage(new DeleteOrder(pageParams));
                     }
                 });
             }

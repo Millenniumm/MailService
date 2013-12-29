@@ -27,6 +27,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import tour.admin.AdminPage;
+import tour.header.HeaderPanel;
 import tour.order.OrderDao;
 import tour.order.models.Order;
 import tour.order.models.OrderObject;
@@ -39,6 +40,7 @@ public final class CreateOrderForUser extends WebPage {
 
     public CreateOrderForUser() {
         super();
+        add(new HeaderPanel("headerPanel"));
         add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));
         Form<?> form = new AdminOrderPageForm("AdminOrderPageForm");
         add(form);

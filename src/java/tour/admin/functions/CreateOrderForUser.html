@@ -4,23 +4,45 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>CreateOrderForUser</title>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+                <link rel="stylesheet" href="CSS/bootstrap.css"/>
+        <link rel="stylesheet" href="CSS/stylechange.css"/>
+        <style type="text/css">
+            .form-horizontal{
+                max-width: 380px;
+            }
+            
+            .form-horizontal .control-group{
+                padding-top:10px;
+            }
+            
+            .form-horizontal .control-label{
+                width: 150px;
+                text-align: left;
+                margin-left: 0px;
+            }
+
+            .form-horizontal .controls {
+                margin-left: 80px;
+                padding-top: 0px;
+            }
+        </style>
     </head>
     <body>
+        <div wicket:id="headerPanel"/>
         <a href="thisGetsReplacedAtRuntime" 
            wicket:id="AdminPage">AdminPage</a>
         <form class="form-horizontal" wicket:id="AdminOrderPageForm">    
             <span wicket:id="feedback"></span>
             <div class="control-group">
-                <label class="control-label" for="countryDrop">Enter Username:</label>
+                <label class="control-label" for="usernameEnter">Enter Username:</label>
                 <div class="controls">
-                    <input type="text" wicket:id="username"/>
+                    <input id="usernameEnter" type="text" wicket:id="username"/>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="countryDrop">Enter E-mail:</label>
+                <label class="control-label" for="emailEnter">Enter E-mail:</label>
                 <div class="controls">
-                    <input type="text" wicket:id="email"/>
+                    <input id="emailEnter" type="text" wicket:id="email"/>
                 </div>
             </div>
             <div class="control-group">

@@ -238,7 +238,11 @@ public final class OrderPage extends WebPage {
 
         @Override
         public final void onSubmit() {
-            orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), session.getUser(), getCalculatedTotalCostSum());
+            orderDao.addNewOrder(getSelectedOption(),
+                    getSelectedHotel(), 
+                    getSelectedOption(), 
+                    session.getUser(), 
+                    getTotalCostSum());
         }
 
         private List<String> getNames(List<OrderObject> orderObjects, String criteria) {

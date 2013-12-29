@@ -21,6 +21,9 @@ public class Country extends OrderObject{
     }
 
     public String getName() {
+        if (name == null) {
+            return "";
+        }
         return name;
     }
 

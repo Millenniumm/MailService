@@ -25,14 +25,23 @@ public class Account {
     }
 
     public String getLogin() {
+        if (login == null) {
+            return "";
+        }
         return login;
     }
 
     public String getPassword() {
+        if (password == null) {
+            return "";
+        }
         return password;
     }
-    
+
     public String getAge() {
+        if (age == null) {
+            return "";
+        }
         return age;
     }
 
@@ -41,6 +50,9 @@ public class Account {
     }
 
     public String getPersCode() {
+        if (persCode == null) {
+            return "";
+        }
         return persCode;
     }
 
@@ -49,6 +61,9 @@ public class Account {
     }
 
     public String getName() {
+        if (name == null) {
+            return "";
+        }
         return name;
     }
 
@@ -57,13 +72,16 @@ public class Account {
     }
 
     public String getSurname() {
+        if (surname == null) {
+            return "";
+        }
         return surname;
     }
 
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    
+
     public Boolean isAdmin() {
         return admin;
     }
@@ -71,12 +89,18 @@ public class Account {
     public void setAdmin(Boolean admin) {
         this.admin = admin;
     }
-    
+
     public String getNewPassword() {
+        if (newPassword == null) {
+            return "";
+        }
         return newPassword;
     }
 
     public String getRepeatNewPassword() {
+        if (repeatNewPassword == null) {
+            return "";
+        }
         return repeatNewPassword;
     }
 }

@@ -45,7 +45,7 @@ public class Order {
     }
     
     public String getCountry() {
-        return country;
+        return country == null ? "" : country;
     }
 
     public void setCountry(String country) {
@@ -53,7 +53,7 @@ public class Order {
     }
 
     public String getHotel() {
-        return hotel;
+    return hotel == null ? "" : hotel;    
     }
 
     public void setHotel(String hotel) {
@@ -61,7 +61,7 @@ public class Order {
     }
 
     public String getTour() {
-        return tour;
+        return tour == null ? "" : tour;
     }
 
     public void setTour(String tour) {
@@ -69,7 +69,7 @@ public class Order {
     }
 
     public String getUser() {
-        return user;
+        return user == null ? "" : user;
     }
 
     public void setUser(String user) {
@@ -77,7 +77,7 @@ public class Order {
     }
 
     public String getCost() {
-        return cost;
+        return cost == null ? "" : cost;
     }
 
     public void setCost(String cost) {
@@ -85,11 +85,10 @@ public class Order {
     }
     
     public String getOrder(){
-        return "    " + this.country+
-               "    " + this.hotel+
-               "    " + this.tour+
-               "    " + this.user+
-               "    " + this.cost;
+        return "    " + getCountry()+
+               "    " + getHotel()+
+               "    " + getTour()+
+               "    " + getUser()+
+               "    " + getCost();
     }
-
 }

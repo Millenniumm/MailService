@@ -6,7 +6,6 @@
 package tour.admin.functions;
 
 import java.util.List;
-import mail.registration.RegistrationPage;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -15,6 +14,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import tour.admin.AdminPage;
 import tour.order.OrderDao;
@@ -25,6 +25,8 @@ import tour.order.models.Order;
  * @author Deniss
  */
 public final class DeleteOrder extends WebPage {
+
+    private FeedbackPanel feedbackPanel;
 
     public DeleteOrder() {
         super();
@@ -39,7 +41,6 @@ public final class DeleteOrder extends WebPage {
             @Override
             protected void populateItem(final ListItem<Order> li) {
                 final PropertyModel buttonId = new PropertyModel(li.getModel(), "getId");
-                
                 li.add(new Label("order", new PropertyModel(li.getModel(), "getOrder")));
                 li.add(new Button("deleteButton") {
                     @Override
@@ -51,6 +52,7 @@ public final class DeleteOrder extends WebPage {
                 });
             }
         });
+        feedbackPanel = new FeedbackPanel("feedback");
         add(form);
     }
 }

@@ -28,9 +28,12 @@ public final class DeleteOrder extends WebPage {
 
     public DeleteOrder() {
         super();
+    }
+
+    public DeleteOrder(PageParameters params) {
         OrderDao orderDao = new OrderDao();
         add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));
-        List<Order> orders = OrderDao.getOrders();
+        List<Order> orders = OrderDao.getOrdersForUser(params.get("userName").toString());
         Form form = new Form("form");
         form.add(new ListView<Order>("orders", orders) {
             @Override
@@ -38,7 +41,7 @@ public final class DeleteOrder extends WebPage {
                 final PropertyModel buttonId = new PropertyModel(li.getModel(), "getId");
                 
                 li.add(new Label("order", new PropertyModel(li.getModel(), "getOrder")));
-                li.add(new Button("deleteButton",buttonId) {
+                li.add(new Button("deleteButton") {
                     @Override
                     public void onSubmit() {
                         String id = buttonId.getObject().toString();
@@ -49,9 +52,5 @@ public final class DeleteOrder extends WebPage {
             }
         });
         add(form);
-    }
-
-    public DeleteOrder(PageParameters params) {
-        //TODO:  process page parameters
     }
 }

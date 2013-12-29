@@ -3,16 +3,17 @@
 <html xmlns:wicket="http://wicket.apache.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>AdminPage</title>
+        <title>SearchOrders</title>
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
         <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="SearchOrders">SearchOrders</a>
-        <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="CreateOrderForUser">CreateOrderForUser</a>
-        <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="MainPage">MainPage</a>
-        
+           wicket:id="AdminPage">AdminPage</a>
+        <h3>Search For orders.</h3>
+        <form wicket:id="form">
+            <div>Enter username:</div>
+            <input type="text" wicket:id="usernameText"/>
+            <input type="submit" wicket:id="searchButton" value="Search"/>
+        </form>
     </body>
 </html>

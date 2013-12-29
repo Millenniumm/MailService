@@ -11,6 +11,11 @@ public class AccountDAO {
         String insert = "INSERT INTO account VALUES ('" + login + "','" + password + "','" + name + "','" + surname + "','" + age + "','" + persCode + "')";
         DBConnection.executeUpdate(insert);
     }
+    
+    public static void addNewAccount(String login, String pass){
+        String insert = "INSERT INTO account(login,password) VALUES ('" + login + "','"+pass+"');";
+        DBConnection.executeUpdate(insert);
+    }
 
     public static void updateAccount(String login, String name, String surname, String age, String persCode) {
         String insert = "UPDATE account SET name='" + name + "', surname='" + surname + "', age='" + age + "', persCode='" + persCode + "' WHERE login='" + login + "';";
@@ -41,6 +46,24 @@ public class AccountDAO {
             return list;
         } catch (Exception e) {
             return null;
+        }
+    }
+
+    public static boolean checkIsUserRegistered(String user) {
+        boolean result = false;
+        try {
+            String select = "SELECT login FROM account where login='" + user + "';";
+            ResultSet query = DBConnection.executeQuery(select);
+            while (query.next()) {
+                String username = query.getString("login");
+                if (!username.equals(null)) {
+                    result = true;
+                    query.close();
+                }
+            }
+            return result;
+        } catch (Exception e) {
+            return result;
         }
     }
 

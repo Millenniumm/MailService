@@ -4,9 +4,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>SignOutPage</title>
+        <link rel="stylesheet" href="CSS/stylechange.css">
     </head>
     <body>
-       <h2>Goodbye!</h2>    
-    <wicket:link><a href="SignInPage.html">Home</a></wicket:link>
+       <div wicket:id="headerPanel"/>
+       <div class="form-horizontal">
+           <center><h2>Goodbye!</h2>
+           <wicket:link><a style="font-size:large;" href="SignInPage.html">Home</a></wicket:link></center>
+       </div>
     </body>
 </html>

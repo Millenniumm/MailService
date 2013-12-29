@@ -9,11 +9,18 @@
     <body>
         <a href="thisGetsReplacedAtRuntime" 
            wicket:id="AdminPage">AdminPage</a>
-        <form class="form-horizontal" wicket:id="AdminOrderPageForm">           
+        <form class="form-horizontal" wicket:id="AdminOrderPageForm">    
+            <span wicket:id="feedback"></span>
             <div class="control-group">
                 <label class="control-label" for="countryDrop">Enter Username:</label>
                 <div class="controls">
                     <input type="text" wicket:id="username"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="countryDrop">Enter E-mail:</label>
+                <div class="controls">
+                    <input type="text" wicket:id="email"/>
                 </div>
             </div>
             <div class="control-group">

@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import mail.account.AccountDAO;
 import mail.session.SignInSession;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -20,6 +21,7 @@ import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -70,11 +72,17 @@ public final class CreateOrderForUser extends WebPage {
         private Model<String> tourCostModel;
         private PropertyModel<String> totalCostSumModel;
         private TextField<String> username;
+        private TextField<String> email;
+        private FeedbackPanel errorPanel;
 
         public AdminOrderPageForm(String id) {
             super(id);
 
+            
+            errorPanel = new FeedbackPanel("feedback");
             username = new TextField<String>("username",
+                    Model.of(""));
+            email = new TextField<String>("email",
                     Model.of(""));
             countryCostModel = Model.of("");
             hotelCostModel = Model.of("");
@@ -185,7 +193,9 @@ public final class CreateOrderForUser extends WebPage {
                             target.add(totalCostSum);
                         }
                     });
+            add(errorPanel);
             add(username);
+            add(email);
             add(countryDropDown);
             add(hotelDropDown);
             add(tourDropDown);
@@ -234,8 +244,19 @@ public final class CreateOrderForUser extends WebPage {
 
         @Override
         public final void onSubmit() {
+            if (AccountDAO.checkIsUserRegistered(username.getModelObject())) {
+                orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), username.getModelObject(), getCalculatedTotalCostSum());
+                setResponsePage(CreateOrderForUser.class);
+            } 
+            if(username.getModelObject() == null || username.getModelObject() == ""){
+                error("EnterUserName");
+            }
             
-            orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), username.getModelObject(), getCalculatedTotalCostSum());
+            if(!AccountDAO.checkIsUserRegistered(username.getModelObject()) && (!(email.getModelObject() == "") || !(email.getModelObject() == null))){
+                AccountDAO.addNewAccount(username.getModelObject(), "123qwe");
+                orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), username.getModelObject(), getCalculatedTotalCostSum());
+                setResponsePage(CreateOrderForUser.class);
+            }
         }
 
         private List<String> getNames(List<OrderObject> orderObjects, String criteria) {

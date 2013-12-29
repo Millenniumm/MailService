@@ -11,10 +11,12 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.util.value.ValueMap;
+import tour.header.HeaderPanel;
 
 public final class SignInPage extends WebPage {
 
     public SignInPage() {
+        add(new HeaderPanel("headerPanel"));
         add(new SignInForm("SignInForm"));
     }
 

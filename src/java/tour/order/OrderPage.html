@@ -7,6 +7,14 @@
         <link rel="stylesheet" href="CSS/bootstrap.css"/>
         <link rel="stylesheet" href="CSS/stylechange.css"/>
         <style type="text/css">
+            .form-horizontal{
+                max-width: 380px;
+            }
+            
+            .form-horizontal .control-group{
+                padding-top:10px;
+            }
+            
             .form-horizontal .control-label{
                 width: 150px;
                 text-align: left;
@@ -20,6 +28,7 @@
         </style>
     </head>
     <body>
+        <div wicket:id="headerPanel"/>
         <form class="form-horizontal" wicket:id="OrderPageForm">           
             <div class="control-group">
                 <label class="control-label" for="countryDrop">Select Country:</label>

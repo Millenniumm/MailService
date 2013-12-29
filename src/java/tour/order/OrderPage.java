@@ -26,6 +26,7 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
+import tour.header.HeaderPanel;
 
 /**
  *
@@ -36,6 +37,7 @@ public final class OrderPage extends WebPage {
 
     public OrderPage() {
         super();
+        add(new HeaderPanel("headerPanel"));
         Form<?> form = new OrderPageForm("OrderPageForm");
         add(form);
     }

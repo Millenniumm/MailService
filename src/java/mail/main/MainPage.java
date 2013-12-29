@@ -4,6 +4,7 @@ import mail.base.BasePage;
 import mail.session.AuthenticatedWebPage;
 import mail.menupanel.MenuPanel;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import tour.header.HeaderPanel;
 import tour.order.OrderPage;
 
 /*
@@ -18,6 +19,7 @@ import tour.order.OrderPage;
 public final class MainPage extends BasePage implements AuthenticatedWebPage {
 
     public MainPage() {
+        add(new HeaderPanel("headerPanel"));
         add(new MenuPanel("menuPanel"));
         add(new BookmarkablePageLink<OrderPage>("OrderPage", OrderPage.class));
     }

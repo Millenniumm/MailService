@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
+import tour.header.HeaderPanel;
 
 /**
  *
@@ -28,6 +29,7 @@ public final class Profile extends WebPage {
     private String persCode;
 
     public Profile() {
+        add(new HeaderPanel("headerPanel"));
         add(new MenuPanel("menuPanel"));
 
         List<Account> accounts = aO.getAccountList();

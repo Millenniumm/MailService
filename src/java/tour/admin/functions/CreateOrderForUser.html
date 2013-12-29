@@ -7,7 +7,60 @@
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
-         <a href="thisGetsReplacedAtRuntime" 
+        <a href="thisGetsReplacedAtRuntime" 
            wicket:id="AdminPage">AdminPage</a>
+        <form class="form-horizontal" wicket:id="AdminOrderPageForm">           
+            <div class="control-group">
+                <label class="control-label" for="countryDrop">Enter Username:</label>
+                <div class="controls">
+                    <input type="text" wicket:id="username"/>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="countryDrop">Select Country:</label>
+                <div class="controls">
+                    <select id="countryDrop" wicket:id="countryDropDown"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="countryCost">Cost:</label>
+                <div class="controls">
+                    <label id="countryCost" wicket:id="countryCostLabel"></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="hotelDrop">Select Hotel:</label>
+                <div class="controls">
+                    <select id="hotelDrop" wicket:id="hotelDropDown"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="hotelCost">Cost:</label>
+                <div class="controls">
+                    <label id="hotelCost" wicket:id="hotelCostLabel"></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tourDrop">Select Tour:</label>
+                <div class="controls">
+                    <select id="tourDrop" wicket:id="tourDropDown"></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="tourCost">Cost:</label>
+                <div class="controls">
+                    <label id="tourCost" wicket:id="tourCostLabel"></label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="sum">Total sum:</label>
+                <div class="controls">
+                    <input type="text" wicket:id="totalCostSumLabel" disabled/>
+                </div>
+            </div>
+            <center><input class="btn btn-success" type="submit" />
+                <br/><br/>
+            </center>
+        </form>
     </body>
 </html>

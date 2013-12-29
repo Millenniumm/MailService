@@ -75,7 +75,7 @@ public final class OrderPage extends WebPage {
 
         public OrderPageForm(String id) {
             super(id);
-
+                   
             countryCostModel = Model.of("");
             hotelCostModel = Model.of("");
             tourCostModel = Model.of("");
@@ -240,7 +240,7 @@ public final class OrderPage extends WebPage {
         public final void onSubmit() {
             orderDao.addNewOrder(getSelectedOption(),
                     getSelectedHotel(), 
-                    getSelectedOption(), 
+                    getSelectedTour(), 
                     session.getUser(), 
                     getTotalCostSum());
         }

@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.model.Model;
 import tour.admin.AdminPage;
+import tour.header.HeaderPanel;
 
 /**
  *
@@ -26,6 +27,7 @@ public final class SearchOrders extends WebPage {
 
     public SearchOrders() {
         super();
+        add(new HeaderPanel("headerPanel"));
         form = new Form("form");
         searchButton = new Button("searchButton") {
 

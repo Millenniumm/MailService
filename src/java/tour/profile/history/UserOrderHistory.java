@@ -18,6 +18,7 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.PropertyModel;
+import tour.header.HeaderPanel;
 import tour.order.OrderDao;
 import tour.order.models.Order;
 import tour.profile.Profile;
@@ -30,6 +31,7 @@ public final class UserOrderHistory extends WebPage {
 
     public UserOrderHistory() {
         super();
+        add(new HeaderPanel("headerPanel"));
         add(new BookmarkablePageLink<Profile>("ProfilePage", Profile.class));
         List<Order> orders = OrderDao.getOrdersForUser(((SignInSession) Session.get()).getUser().toString());
         Form form = new Form("form");

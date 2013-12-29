@@ -41,7 +41,11 @@ public final class DeleteOrder extends WebPage {
             @Override
             protected void populateItem(final ListItem<Order> li) {
                 final PropertyModel buttonId = new PropertyModel(li.getModel(), "getId");
-                li.add(new Label("order", new PropertyModel(li.getModel(), "getOrder")));
+                li.add(new Label("country", new PropertyModel(li.getModel(), "getCountry")));
+                li.add(new Label("hotel", new PropertyModel(li.getModel(), "getHotel")));
+                li.add(new Label("tour", new PropertyModel(li.getModel(), "getTour")));
+                li.add(new Label("user", new PropertyModel(li.getModel(), "getUser")));
+                li.add(new Label("cost", new PropertyModel(li.getModel(), "getCost")));
                 li.add(new Button("deleteButton") {
                     @Override
                     public void onSubmit() {

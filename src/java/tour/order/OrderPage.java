@@ -28,6 +28,7 @@ import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
+import tour.admin.functions.CreateOrderForUser;
 import tour.header.HeaderPanel;
 
 /**
@@ -36,6 +37,8 @@ import tour.header.HeaderPanel;
  */
 public final class OrderPage extends WebPage {
 // TODO: Make a field for Cost and count it.
+
+    private String feedBack;
 
     public OrderPage() {
         super();
@@ -46,7 +49,12 @@ public final class OrderPage extends WebPage {
     }
 
     public OrderPage(PageParameters params) {
-        //TODO:  process page parameters
+        super();
+        feedBack = params.get("feedBack").toString();
+        add(new HeaderPanel("headerPanel"));
+        add(new MenuPanel("menuPanel"));
+        Form<?> form = new OrderPageForm("OrderPageForm");
+        add(form);
 
     }
 
@@ -142,7 +150,6 @@ public final class OrderPage extends WebPage {
                     new PropertyModel<String>(this, "selectedTour"), modelTourChoices);
             totalCostSumModel = new PropertyModel<String>(this, "calculatedTotalCostSum");
             totalCostSum = new TextField("totalCostSumLabel", totalCostSumModel);
-           
 
             hotelDropDown.setOutputMarkupId(true);
             tourDropDown.setOutputMarkupId(true);
@@ -191,7 +198,8 @@ public final class OrderPage extends WebPage {
                             target.add(totalCostSum);
                         }
                     });
-
+            
+            add(new Label("feedBack", feedBack));
             add(countryDropDown);
             add(hotelDropDown);
             add(tourDropDown);
@@ -238,6 +246,8 @@ public final class OrderPage extends WebPage {
             this.calculatedTotalCostSum = calculatedTotalCostSum;
         }
 
+        final PageParameters pageParams = new PageParameters();
+
         @Override
         public final void onSubmit() {
             orderDao.addNewOrder(getSelectedOption(),
@@ -246,6 +256,8 @@ public final class OrderPage extends WebPage {
                     session.getUser(),
                     getTotalCostSum(),
                     "Card");
+            pageParams.add("feedBack", "Order has been placed !");
+            setResponsePage(new OrderPage(pageParams));
         }
 
         private List<String> getNames(List<OrderObject> orderObjects, String criteria) {

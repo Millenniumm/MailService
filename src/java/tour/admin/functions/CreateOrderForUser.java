@@ -42,6 +42,7 @@ public final class CreateOrderForUser extends WebPage {
     final List<String> TYPES = Arrays
             .asList(new String[]{"Cash", "Card"});
     String selected = "Card";
+    private String feedBack;
 
     public CreateOrderForUser() {
         super();
@@ -56,6 +57,14 @@ public final class CreateOrderForUser extends WebPage {
     }
 
     public CreateOrderForUser(PageParameters params) {
+        feedBack = params.get("feedBack").toString();
+        add(new HeaderPanel("headerPanel"));
+        add(new MenuPanel("menuPanel"));
+        Form<?> form = new AdminOrderPageForm("AdminOrderPageForm");
+        RadioChoice<String> paymentType = new RadioChoice<String>(
+                "hosting", new PropertyModel<String>(this, "selected"), TYPES);
+        form.add(paymentType);
+        add(form);
     }
 
     public final class AdminOrderPageForm extends Form<Void> {
@@ -203,6 +212,7 @@ public final class CreateOrderForUser extends WebPage {
                             target.add(totalCostSum);
                         }
                     });
+            add(new Label("feedBack", feedBack));
             add(errorPanel);
             add(username);
             add(email);
@@ -251,6 +261,7 @@ public final class CreateOrderForUser extends WebPage {
         public void setCalculatedTotalCostSum(String calculatedTotalCostSum) {
             this.calculatedTotalCostSum = calculatedTotalCostSum;
         }
+        final PageParameters pageParams = new PageParameters();
 
         @Override
         public final void onSubmit() {
@@ -261,7 +272,8 @@ public final class CreateOrderForUser extends WebPage {
                         username.getModelObject(),
                         getCalculatedTotalCostSum(),
                         selected);
-                setResponsePage(CreateOrderForUser.class);
+                pageParams.add("feedBack", "Order has been placed !");
+                setResponsePage(new CreateOrderForUser(pageParams));
             }
             if (username.getModelObject() == null || username.getModelObject() == "") {
                 error("EnterUserName");

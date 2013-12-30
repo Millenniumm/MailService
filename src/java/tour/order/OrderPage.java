@@ -8,6 +8,7 @@ package tour.order;
 import tour.order.models.OrderObject;
 import tour.order.models.Order;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -77,7 +78,7 @@ public final class OrderPage extends WebPage {
 
         public OrderPageForm(String id) {
             super(id);
-                   
+
             countryCostModel = Model.of("");
             hotelCostModel = Model.of("");
             tourCostModel = Model.of("");
@@ -141,6 +142,7 @@ public final class OrderPage extends WebPage {
                     new PropertyModel<String>(this, "selectedTour"), modelTourChoices);
             totalCostSumModel = new PropertyModel<String>(this, "calculatedTotalCostSum");
             totalCostSum = new TextField("totalCostSumLabel", totalCostSumModel);
+           
 
             hotelDropDown.setOutputMarkupId(true);
             tourDropDown.setOutputMarkupId(true);
@@ -239,10 +241,11 @@ public final class OrderPage extends WebPage {
         @Override
         public final void onSubmit() {
             orderDao.addNewOrder(getSelectedOption(),
-                    getSelectedHotel(), 
-                    getSelectedTour(), 
-                    session.getUser(), 
-                    getTotalCostSum());
+                    getSelectedHotel(),
+                    getSelectedTour(),
+                    session.getUser(),
+                    getTotalCostSum(),
+                    "Card");
         }
 
         private List<String> getNames(List<OrderObject> orderObjects, String criteria) {

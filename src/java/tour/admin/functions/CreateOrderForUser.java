@@ -6,6 +6,7 @@
 package tour.admin.functions;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +21,7 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.RadioChoice;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
@@ -37,11 +39,19 @@ import tour.order.models.OrderObject;
  */
 public final class CreateOrderForUser extends WebPage {
 
+    final List<String> TYPES = Arrays
+            .asList(new String[]{"Cash", "Card"});
+    String selected = "Card";
+
     public CreateOrderForUser() {
         super();
         add(new HeaderPanel("headerPanel"));
         add(new MenuPanel("menuPanel"));
         Form<?> form = new AdminOrderPageForm("AdminOrderPageForm");
+
+        RadioChoice<String> paymentType = new RadioChoice<String>(
+                "hosting", new PropertyModel<String>(this, "selected"), TYPES);
+        form.add(paymentType);
         add(form);
     }
 
@@ -79,7 +89,6 @@ public final class CreateOrderForUser extends WebPage {
         public AdminOrderPageForm(String id) {
             super(id);
 
-            
             errorPanel = new FeedbackPanel("feedback");
             username = new TextField<String>("username",
                     Model.of(""));
@@ -246,16 +255,26 @@ public final class CreateOrderForUser extends WebPage {
         @Override
         public final void onSubmit() {
             if (AccountDAO.checkIsUserRegistered(username.getModelObject())) {
-                orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), username.getModelObject(), getCalculatedTotalCostSum());
+                orderDao.addNewOrder(getSelectedOption(),
+                        getSelectedHotel(),
+                        getSelectedOption(),
+                        username.getModelObject(),
+                        getCalculatedTotalCostSum(),
+                        selected);
                 setResponsePage(CreateOrderForUser.class);
-            } 
-            if(username.getModelObject() == null || username.getModelObject() == ""){
+            }
+            if (username.getModelObject() == null || username.getModelObject() == "") {
                 error("EnterUserName");
             }
-            
-            if(!AccountDAO.checkIsUserRegistered(username.getModelObject()) && (!(email.getModelObject() == "") || !(email.getModelObject() == null))){
+
+            if (!AccountDAO.checkIsUserRegistered(username.getModelObject()) && (!(email.getModelObject() == "") || !(email.getModelObject() == null))) {
                 AccountDAO.addNewAccount(username.getModelObject(), "123qwe");
-                orderDao.addNewOrder(getSelectedOption(), getSelectedHotel(), getSelectedOption(), username.getModelObject(), getCalculatedTotalCostSum());
+                orderDao.addNewOrder(getSelectedOption(),
+                        getSelectedHotel(),
+                        getSelectedOption(),
+                        username.getModelObject(),
+                        getCalculatedTotalCostSum(),
+                        selected);
                 setResponsePage(CreateOrderForUser.class);
             }
         }

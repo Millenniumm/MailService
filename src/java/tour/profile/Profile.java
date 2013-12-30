@@ -3,20 +3,18 @@ package tour.profile;
 import java.util.List;
 import mail.account.Account;
 import mail.account.AccountDAO;
-import mail.main.MainPage;
 import mail.menupanel.MenuPanel;
 import mail.session.SignInSession;
 import org.apache.wicket.Session;
+import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import tour.header.HeaderPanel;
-import tour.profile.history.UserOrderHistory;
 
 /**
  *
@@ -24,8 +22,8 @@ import tour.profile.history.UserOrderHistory;
  */
 public final class Profile extends WebPage {
 
-    private Account acc = new Account();
-    private AccountDAO aO = new AccountDAO();
+    private final Account acc = new Account();
+    private final AccountDAO aO = new AccountDAO();
     private String name;
     private String surname;
     private String age;
@@ -42,7 +40,8 @@ public final class Profile extends WebPage {
         setSurname(currentAccount.getSurname());
         setAge(currentAccount.getAge());
         setPersCode(currentAccount.getPersCode());
-        FeedbackPanel successP = new FeedbackPanel("successP");
+        
+        
         final TextField yourName = new TextField("yourName", new PropertyModel<String>(this, "name"));
         final TextField yourSurname = new TextField("yourSurname", new PropertyModel<String>(this, "surname"));
         final TextField yourAge = new TextField("yourAge", new PropertyModel<String>(this, "age"));
@@ -63,13 +62,11 @@ public final class Profile extends WebPage {
         };
 
         Form profileForm = new Form("profileForm");
-        profileForm.add(yourName, yourSurname, yourAge, yourPerCode, saveButton, successP);
-
+        
         final PasswordTextField oldPassword = new PasswordTextField("oldPassword", new PropertyModel<String>(acc, "password"));
         final PasswordTextField newPassword = new PasswordTextField("newPassword", new PropertyModel<String>(acc, "newPassword"));
         final PasswordTextField repeatNewPassword = new PasswordTextField("repeatNewPassword", new PropertyModel<String>(acc, "repeatNewPassword"));
-        FeedbackPanel error = new FeedbackPanel("error");
-        FeedbackPanel success = new FeedbackPanel("success");
+       
         Button changeButton = new Button("savePw") {
             @Override
             public void onSubmit() {
@@ -101,8 +98,9 @@ public final class Profile extends WebPage {
         };
         
         Form passwordForm = new Form("passwordForm");
-        passwordForm.add(oldPassword, newPassword, repeatNewPassword, changeButton, error, success);
-
+        FeedbackPanel successP = new FeedbackPanel("successP");
+        profileForm.add(yourName, yourSurname, yourAge, yourPerCode, saveButton, successP);
+        passwordForm.add(oldPassword, newPassword, repeatNewPassword, changeButton);
         add(profileForm, passwordForm);
     }
 

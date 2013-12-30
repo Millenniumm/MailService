@@ -16,6 +16,7 @@ public class Order {
     private String tour;
     private String user;
     private String cost;
+    private String payment;
     private Integer id;
 
     public Order() {
@@ -44,6 +45,14 @@ public class Order {
         this.id= id;
     }
    
+    
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
     
     public void setId(Integer id){
         this.id = id;

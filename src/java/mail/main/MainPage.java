@@ -39,6 +39,10 @@ public final class MainPage extends BasePage implements AuthenticatedWebPage {
         Form form = new Form("form");
         List<Order> orders = new ArrayList();
         orders.add(new Order("Zimbvabva", "Jellki", "River side Cruse", ((SignInSession) Session.get()).getUser().toString(), "200"));
+        orders.add(new Order("America", "Washington", "Airplane Ride", ((SignInSession) Session.get()).getUser().toString(), "1200"));
+        orders.add(new Order("Spain", "Madrid", "Run with the bulls", ((SignInSession) Session.get()).getUser().toString(), "2200"));
+        orders.add(new Order("China", "Hong-Kong", "Bus Ride", ((SignInSession) Session.get()).getUser().toString(), "400"));
+        orders.add(new Order("Latvia", "Daugavpils", "Wall climing", ((SignInSession) Session.get()).getUser().toString(), "550"));
         form.add(new ListView<Order>("orders", orders) {
             @Override
             protected void populateItem(final ListItem<Order> li) {

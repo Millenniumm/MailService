@@ -26,9 +26,9 @@ public class OrderDao {
         DBConnection.executeUpdate(insert);
     }
 
-    public void addNewOrder(String country, String hotel, String tour, String user, String cost) {
-        String delete = "INSERT INTO orders(country,hotel,tour,user,cost) VALUES "
-                + "('" + country + "','" + hotel + "','" + tour + "','" + user + "','" + cost + "')";
+    public void addNewOrder(String country, String hotel, String tour, String user, String cost, String payment) {
+        String delete = "INSERT INTO orders(country,hotel,tour,user,cost,payment) VALUES "
+                + "('" + country + "','" + hotel + "','" + tour + "','" + user + "','" + cost + "','"+payment+"')";
         DBConnection.executeUpdate(delete);
     }
 

@@ -6,11 +6,13 @@
 package tour.order;
 
 import mail.main.MainPage;
+import mail.menupanel.MenuPanel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
+import tour.header.HeaderPanel;
 
 /**
  *
@@ -26,6 +28,8 @@ public final class ComfirmationPage extends WebPage {
 
     public ComfirmationPage(final PageParameters params) {
         orderDao = new OrderDao();
+        add(new MenuPanel("menuPanel"));
+        add(new HeaderPanel("headerPanel"));
         Form form = new Form("form");
         form.add(new Label("country", params.get("country").toString()));
         form.add(new Label("hotel", params.get("hotel").toString()));

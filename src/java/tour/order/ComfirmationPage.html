@@ -4,17 +4,37 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>ComfirmationPage</title>
-        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" href="CSS/bootstrap.css">
+        <link rel="stylesheet" href="CSS/stylechange.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form wicket:id="form">
-            <div style="display: table-cell;"><b>Order: </b></div>
-            <div wicket:id="country" style="display: table-cell;"></div>
-            <div wicket:id="hotel" style="display: table-cell;"></div>
-            <div wicket:id="tour" style="display: table-cell;"></div>
-            <div wicket:id="user" style="display: table-cell;"></div>
-            <div wicket:id="cost" style="display: table-cell;"></div>
-            <input wicket:id="confirmButton" type="submit" value="Confirm"/>
+        <div wicket:id="headerPanel"/>
+        <div class="panel" wicket:id="menuPanel"/>
+        <form class="form-horizontal" wicket:id="form">
+            <h2>Your order:</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Hotel</th>
+                        <th>Tour</th>
+                        <th>Cost</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div wicket:id="country"/></td>
+                        <td><div wicket:id="hotel"/></td>
+                        <td><div wicket:id="tour"/></td>
+                        <td><div wicket:id="cost"/></td>
+                        <td><div wicket:id="user"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <center><input class="btn btn-success" wicket:id="confirmButton" type="submit" value="Confirm"/></center>
         </form>
     </body>
 </html>

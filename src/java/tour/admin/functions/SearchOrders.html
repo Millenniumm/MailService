@@ -6,16 +6,36 @@
         <title>SearchOrders</title>
         <link rel="stylesheet" href="CSS/bootstrap.css"/>
         <link rel="stylesheet" href="CSS/stylechange.css"/>
+        <style type="text/css">
+            .form-horizontal{
+                max-width: 380px;
+            }
+                 
+            .form-horizontal .control-label{
+                width: 120px;
+                text-align: left;
+                margin-left: 20px;
+            }
+
+            .form-horizontal .controls {
+                margin-left: 50px;
+                padding-top: 0px;
+            }
+        </style>
     </head>
     <body>
         <div wicket:id="headerPanel"/>
         <a href="thisGetsReplacedAtRuntime" 
            wicket:id="AdminPage">AdminPage</a>
         <form class="form-horizontal" wicket:id="form">
-            <h3>Search For orders.</h3>
-            <div>Enter username:</div>
-            <input type="text" wicket:id="usernameText"/>
-            <input type="submit" wicket:id="searchButton" value="Search"/>
+            <h3>Search orders:</h3>
+            <div class="control-group">
+                <label class="control-label" for="usernameEnter">Enter Username:</label>
+                <div class="controls">
+                    <input id="usernameEnter" type="text" wicket:id="usernameText"/>
+                </div>
+            </div>
+            <center><input class="btn btn-success" type="submit" wicket:id="searchButton" value="Search"/></center>
         </form>
     </body>
 </html>

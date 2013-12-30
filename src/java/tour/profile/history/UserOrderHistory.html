@@ -11,23 +11,27 @@
        <div wicket:id="headerPanel"/>
        <a href="thisGetsReplacedAtRuntime" 
            wicket:id="ProfilePage">ProfilePage</a>
-        <form class="form-horizontal" wicket:id="form">
-            <div id="bd" style="display: table; border: 1px solid;">
-                <div style="display: table-row;">
-                            <div style="display: table-cell; border-right: 1px solid; border-bottom: 1px solid; text-align: center;">Country</div>
-                            <div style="display: table-cell; border-right: 1px solid; border-bottom: 1px solid;text-align: center;">Hotel</div>
-                            <div style="display: table-cell; border-right: 1px solid; border-bottom: 1px solid;text-align: center;">Tour</div>
-                            <div style="display: table-cell; border-right: 1px solid; border-bottom: 1px solid;text-align: center;">User</div>
-                            <div style="display: table-cell; border-bottom: 1px solid; text-align: center;">Cost</div>
-                </div>
-                <div wicket:id="orders" style="display: table-row;">
-                    <div wicket:id="country" style="display: table-cell; border-right: 1px solid;"></div>
-                    <div wicket:id="hotel" style="display: table-cell; border-right: 1px solid;"></div>
-                    <div wicket:id="tour" style="display: table-cell; border-right: 1px solid;"></div>
-                    <div wicket:id="user" style="display: table-cell; border-right: 1px solid;"></div>
-                    <div wicket:id="cost" style="display: table-cell;"></div>
-                </div>
-            </div>
-        </form>
+       <form class="form-horizontal" wicket:id="form">
+           <table class="table">
+               <thead>
+                   <tr>
+                       <th>Country</th>
+                       <th>Hotel</th>
+                       <th>Tour</th>
+                       <th>Cost</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <div wicket:id="orders">
+                       <tr>
+                           <td><div wicket:id="country"/></td>
+                           <td><div wicket:id="hotel"/></td>
+                           <td><div wicket:id="tour"/></td>
+                           <td><div wicket:id="cost"/></td>
+                       </tr>
+                   </div>
+               </tbody>
+           </table>
+       </form>
     </body>
 </html>

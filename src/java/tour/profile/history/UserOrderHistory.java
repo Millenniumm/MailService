@@ -41,7 +41,6 @@ public final class UserOrderHistory extends WebPage {
                 li.add(new Label("country", new PropertyModel(li.getModel(), "getCountry")));
                 li.add(new Label("hotel", new PropertyModel(li.getModel(), "getHotel")));
                 li.add(new Label("tour", new PropertyModel(li.getModel(), "getTour")));
-                li.add(new Label("user", new PropertyModel(li.getModel(), "getUser")));
                 li.add(new Label("cost", new PropertyModel(li.getModel(), "getCost")));
             }
         });

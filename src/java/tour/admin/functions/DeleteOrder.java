@@ -17,6 +17,7 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import tour.admin.AdminPage;
+import tour.header.HeaderPanel;
 import tour.order.OrderDao;
 import tour.order.models.Order;
 
@@ -33,6 +34,7 @@ public final class DeleteOrder extends WebPage {
     }
 
     public DeleteOrder(final PageParameters params) {
+        add(new HeaderPanel("headerPanel"));
         OrderDao orderDao = new OrderDao();
         final PageParameters pageParams = new PageParameters();
         add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));

@@ -5,19 +5,12 @@
         <title>Profile</title>
         <link rel="stylesheet" href="CSS/bootstrap.css">
         <link rel="stylesheet" href="CSS/stylechange.css">
-        <style type="text/css">
-            .form-horizontal{
-                margin: 10px auto 0;
-            }
-        </style>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
     <body>
     <div wicket:id="headerPanel"/>
-    <center><div class="panel" wicket:id="menuPanel"/></center>
-    <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="MainPage">MainPage</a>
-    <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="HistoryPage">HistoryPage</a>
+    <div class="panel" wicket:id="menuPanel"/>
         <form class="form-horizontal" wicket:id="profileForm">
             <h2>Profile:</h2>
             <span style="color:green" wicket:id="successP"/>

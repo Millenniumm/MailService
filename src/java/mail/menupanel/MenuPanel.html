@@ -6,14 +6,31 @@
     </head>
     <body>
     <wicket:panel>
-        <p>
-            <span wicket:id="welcome"/>
-            <a wicket:id="profileLink" href="#">
-                <span wicket:id="name"/>
-            </a>! 
-            <a wicket:id="adminPage" href="#">admin</a>
-            <a wicket:id="exit" href="#">exit</a>
-        </p>
+        <div class="navbar">
+            <ul role="navigation" class="nav">
+                <li><a wicket:id="homePage" href="#">Home</a></li>
+                <li><a wicket:id="orderPage" href="#">Order</a></li>
+                <li><a wicket:id="historyPage" href="#">History</a></li>
+                <li class="dropdown">
+                    <a href="#" wicket:id="adminMenu" data-toggle="dropdown" class="dropdown-toggle">Admin<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a wicket:id="SearchOrders" href="#">Search Order</a></li>
+                        <li><a wicket:id="CreateOrderForUser" href="#">Create Order For User</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav pull-right">
+                <li>
+                    <div>
+                        <span wicket:id="welcome"/>
+                        <a wicket:id="profileLink" href="#">
+                            <span wicket:id="name"/>
+                        </a>!
+                        <a wicket:id="exit" href="#">exit</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </wicket:panel>
 </body>
 </html>

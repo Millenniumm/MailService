@@ -7,21 +7,19 @@
 package tour.profile.history;
 
 import java.util.List;
+import mail.menupanel.MenuPanel;
 import mail.session.SignInSession;
 import org.apache.wicket.Session;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.model.PropertyModel;
 import tour.header.HeaderPanel;
 import tour.order.OrderDao;
 import tour.order.models.Order;
-import tour.profile.Profile;
 
 /**
  *
@@ -32,7 +30,7 @@ public final class UserOrderHistory extends WebPage {
     public UserOrderHistory() {
         super();
         add(new HeaderPanel("headerPanel"));
-        add(new BookmarkablePageLink<Profile>("ProfilePage", Profile.class));
+        add(new MenuPanel("menuPanel"));
         List<Order> orders = OrderDao.getOrdersForUser(((SignInSession) Session.get()).getUser().toString());
         Form form = new Form("form");
         form.add(new ListView<Order>("orders", orders) {

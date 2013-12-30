@@ -35,7 +35,6 @@ public final class MainPage extends BasePage implements AuthenticatedWebPage {
         final PageParameters pageParams = new PageParameters();
         add(new HeaderPanel("headerPanel"));
         add(new MenuPanel("menuPanel"));
-        add(new BookmarkablePageLink<OrderPage>("OrderPage", OrderPage.class));
 
         Form form = new Form("form");
         List<Order> orders = new ArrayList();

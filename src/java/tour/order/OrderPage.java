@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import mail.menupanel.MenuPanel;
 import mail.session.SignInSession;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -38,6 +39,7 @@ public final class OrderPage extends WebPage {
     public OrderPage() {
         super();
         add(new HeaderPanel("headerPanel"));
+        add(new MenuPanel("menuPanel"));
         Form<?> form = new OrderPageForm("OrderPageForm");
         add(form);
     }
@@ -187,8 +189,6 @@ public final class OrderPage extends WebPage {
                             target.add(totalCostSum);
                         }
                     });
-            
-            add(new BookmarkablePageLink<mail.main.MainPage>("MainPage", mail.main.MainPage.class));
 
             add(countryDropDown);
             add(hotelDropDown);

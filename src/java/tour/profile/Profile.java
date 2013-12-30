@@ -34,8 +34,6 @@ public final class Profile extends WebPage {
     public Profile() {
         add(new HeaderPanel("headerPanel"));
         add(new MenuPanel("menuPanel"));
-        add(new BookmarkablePageLink<MainPage>("MainPage", MainPage.class));
-        add(new BookmarkablePageLink<UserOrderHistory>("HistoryPage", UserOrderHistory.class));
         List<Account> accounts = aO.getAccountList();
         SignInSession session = getMySession();
         Account currentAccount = getAccount(accounts, session.getUser());

@@ -6,11 +6,9 @@
         <title>Order Page</title>
         <link rel="stylesheet" href="CSS/bootstrap.css"/>
         <link rel="stylesheet" href="CSS/stylechange.css"/>
-        <style type="text/css">
-            .form-horizontal{
-                max-width: 380px;
-            }
-            
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <style type="text/css">          
             .form-horizontal .control-group{
                 padding-top:10px;
             }
@@ -18,7 +16,7 @@
             .form-horizontal .control-label{
                 width: 150px;
                 text-align: left;
-                margin-left: 0px;
+                margin-left: 50px;
             }
 
             .form-horizontal .controls {
@@ -29,7 +27,9 @@
     </head>
     <body>
         <div wicket:id="headerPanel"/>
-        <form class="form-horizontal" wicket:id="OrderPageForm">           
+        <div class="panel" wicket:id="menuPanel"/>
+        <form class="form-horizontal" wicket:id="OrderPageForm">
+            <h2>Order:</h2>
             <div class="control-group">
                 <label class="control-label" for="countryDrop">Select Country:</label>
                 <div class="controls">
@@ -72,9 +72,7 @@
                       <input type="text" wicket:id="totalCostSumLabel" disabled/>
                 </div>
             </div>
-            <center><input class="btn btn-success" type="submit" />
-            <br/><br/>
-            <a href="thisGetsReplacedAtRuntime" wicket:id="MainPage">Back to Main</a></center>
+            <center><input class="btn btn-success" type="submit" /></center>
         </form>
     </body>
 </html>

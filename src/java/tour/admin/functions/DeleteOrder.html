@@ -6,36 +6,38 @@
         <title>DeleteOrder</title>
         <link rel="stylesheet" href="CSS/bootstrap.css"/>
         <link rel="stylesheet" href="CSS/stylechange.css"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <div wicket:id="headerPanel"/>
-        <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="AdminPage">AdminPage</a>     
+        <div class="panel" wicket:id="menuPanel"/>
         <form class="form-horizontal" wicket:id="form">
-           <table class="table">
-               <thead>
-                   <tr>
-                       <th>Country</th>
-                       <th>Hotel</th>
-                       <th>Tour</th>
-                       <th>Cost</th>
-                       <th>User</th>
-                       <th>Action</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <div wicket:id="orders">
-                       <tr>
-                           <td><div wicket:id="country"/></td>
-                           <td><div wicket:id="hotel"/></td>
-                           <td><div wicket:id="tour"/></td>
-                           <td><div wicket:id="cost"/></td>
-                           <td><div wicket:id="user"/></td>
-                           <td><input class="btn btn-small btn-danger" wicket:id="deleteButton" type="submit" value="Delete"/></td>
-                       </tr>
-                   </div>
-               </tbody>
-           </table>
-       </form>
+            <h2>Delete order:</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Hotel</th>
+                        <th>Tour</th>
+                        <th>Cost</th>
+                        <th>User</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div wicket:id="orders">
+                        <tr>
+                            <td><div wicket:id="country"/></td>
+                            <td><div wicket:id="hotel"/></td>
+                            <td><div wicket:id="tour"/></td>
+                            <td><div wicket:id="cost"/></td>
+                            <td><div wicket:id="user"/></td>
+                            <td><input class="btn btn-small btn-danger" wicket:id="deleteButton" type="submit" value="Delete"/></td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </form>
     </body>
 </html>

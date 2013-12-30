@@ -4,13 +4,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>CreateOrderForUser</title>
-                <link rel="stylesheet" href="CSS/bootstrap.css"/>
+        <link rel="stylesheet" href="CSS/bootstrap.css"/>
         <link rel="stylesheet" href="CSS/stylechange.css"/>
-        <style type="text/css">
-            .form-horizontal{
-                max-width: 380px;
-            }
-            
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <style type="text/css">       
             .form-horizontal .control-group{
                 padding-top:10px;
             }
@@ -18,7 +16,7 @@
             .form-horizontal .control-label{
                 width: 150px;
                 text-align: left;
-                margin-left: 0px;
+                margin-left: 45px;
             }
 
             .form-horizontal .controls {
@@ -29,9 +27,9 @@
     </head>
     <body>
         <div wicket:id="headerPanel"/>
-        <a href="thisGetsReplacedAtRuntime" 
-           wicket:id="AdminPage">AdminPage</a>
-        <form class="form-horizontal" wicket:id="AdminOrderPageForm">    
+        <div class="panel" wicket:id="menuPanel"/>
+        <form class="form-horizontal" wicket:id="AdminOrderPageForm">
+            <h2>User order:</h2>
             <span wicket:id="feedback"></span>
             <div class="control-group">
                 <label class="control-label" for="usernameEnter">Enter Username:</label>

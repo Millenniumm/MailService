@@ -5,6 +5,7 @@
  */
 package tour.admin.functions;
 
+import mail.menupanel.MenuPanel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Button;
@@ -12,7 +13,6 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.model.Model;
-import tour.admin.AdminPage;
 import tour.header.HeaderPanel;
 
 /**
@@ -28,6 +28,7 @@ public final class SearchOrders extends WebPage {
     public SearchOrders() {
         super();
         add(new HeaderPanel("headerPanel"));
+        add(new MenuPanel("menuPanel"));
         form = new Form("form");
         searchButton = new Button("searchButton") {
 
@@ -43,7 +44,6 @@ public final class SearchOrders extends WebPage {
         username = new TextField<String>("usernameText", Model.of(""));
         form.add(username);
         form.add(searchButton);
-        add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));
         add(form);
     }
 

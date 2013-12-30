@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import mail.account.AccountDAO;
+import mail.menupanel.MenuPanel;
 import mail.session.SignInSession;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
@@ -20,13 +21,11 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
-import tour.admin.AdminPage;
 import tour.header.HeaderPanel;
 import tour.order.OrderDao;
 import tour.order.models.Order;
@@ -41,7 +40,7 @@ public final class CreateOrderForUser extends WebPage {
     public CreateOrderForUser() {
         super();
         add(new HeaderPanel("headerPanel"));
-        add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));
+        add(new MenuPanel("menuPanel"));
         Form<?> form = new AdminOrderPageForm("AdminOrderPageForm");
         add(form);
     }

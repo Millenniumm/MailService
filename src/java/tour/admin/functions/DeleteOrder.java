@@ -6,6 +6,7 @@
 package tour.admin.functions;
 
 import java.util.List;
+import mail.menupanel.MenuPanel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -16,7 +17,6 @@ import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
-import tour.admin.AdminPage;
 import tour.header.HeaderPanel;
 import tour.order.OrderDao;
 import tour.order.models.Order;
@@ -35,9 +35,9 @@ public final class DeleteOrder extends WebPage {
 
     public DeleteOrder(final PageParameters params) {
         add(new HeaderPanel("headerPanel"));
+        add(new MenuPanel("menuPanel"));
         OrderDao orderDao = new OrderDao();
         final PageParameters pageParams = new PageParameters();
-        add(new BookmarkablePageLink<AdminPage>("AdminPage", AdminPage.class));
         List<Order> orders = OrderDao.getOrdersForUser(params.get("userName").toString());
         Form form = new Form("form");
         form.add(new ListView<Order>("orders", orders) {

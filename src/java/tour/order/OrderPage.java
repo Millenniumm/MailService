@@ -55,7 +55,6 @@ public final class OrderPage extends WebPage {
         add(new MenuPanel("menuPanel"));
         Form<?> form = new OrderPageForm("OrderPageForm");
         add(form);
-
     }
 
     public final class OrderPageForm extends Form<Void> {

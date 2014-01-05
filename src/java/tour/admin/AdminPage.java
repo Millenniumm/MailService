@@ -20,6 +20,5 @@ public final class AdminPage extends WebPage {
     }
 
     public AdminPage(PageParameters params) {
-        //TODO:  process page parameters
     }
 }

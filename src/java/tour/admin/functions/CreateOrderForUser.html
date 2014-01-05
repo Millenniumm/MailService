@@ -23,6 +23,12 @@
                 margin-left: 80px;
                 padding-top: 0px;
             }
+            .form-horizontal .paymethod {
+                margin-left: 45px;
+            }
+            .form-horizontal .paymethod .radiobut {
+                margin-left: 180px;
+            }
         </style>
     </head>
     <body>
@@ -86,7 +92,10 @@
                     <input type="text" wicket:id="totalCostSumLabel" disabled/>
                 </div>
             </div>
-            <span wicket:id="hosting"></span>
+            <div class="paymethod">
+                Select payment methods:
+                <div class="radiobut" wicket:id="hosting"/>
+            </div>
             <center><input class="btn btn-success" type="submit" />
                 <br/><br/>
             </center>

@@ -23,6 +23,7 @@ and open the template in the editor.
         </style>
     </head>
     <body>
+        <div wicket:id="headerPanel"/>
         <form class="form-horizontal" wicket:id="registerForm">
             <center><h2>Registration</h2></center>
             <span style="color:red" wicket:id="error"/>
@@ -68,6 +69,7 @@ and open the template in the editor.
                 </div>
             </div>
             <center><input class="btn btn-success" wicket:id="Create" type="submit" value="Create account"/></center>
+            <center><a wicket:id="signinPage">Sign in!</a></center>
         </form>
     </body>
 </html>

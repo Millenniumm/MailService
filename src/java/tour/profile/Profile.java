@@ -16,10 +16,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import tour.header.HeaderPanel;
 
-/**
- *
- * @author Valentin
- */
+
 public final class Profile extends WebPage {
 
     private final Account acc = new Account();

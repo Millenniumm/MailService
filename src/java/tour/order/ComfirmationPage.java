@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package tour.order;
 
 import tour.main.MainPage;
@@ -15,10 +11,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.behavior.* ;
 import tour.header.HeaderPanel;
 
-/**
- *
- * @author Deniss
- */
+
 public final class ComfirmationPage extends WebPage {
 
     private OrderDao orderDao;

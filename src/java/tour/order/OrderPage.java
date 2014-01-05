@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tour.order;
 
 import tour.order.models.OrderObject;
@@ -31,12 +26,8 @@ import org.apache.wicket.model.PropertyModel;
 import tour.admin.functions.CreateOrderForUser;
 import tour.header.HeaderPanel;
 
-/**
- *
- * @author Deniss
- */
+
 public final class OrderPage extends WebPage {
-// TODO: Make a field for Cost and count it.
 
     private String feedBack;
 

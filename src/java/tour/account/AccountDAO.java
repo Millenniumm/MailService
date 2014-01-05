@@ -1,9 +1,9 @@
-package mail.account;
+package tour.account;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import mail.dbconnection.DBConnection;
+import tour.dbconnection.DBConnection;
 
 public class AccountDAO {
 

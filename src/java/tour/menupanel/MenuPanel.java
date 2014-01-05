@@ -1,9 +1,9 @@
-package mail.menupanel;
+package tour.menupanel;
 
-import mail.account.AccountDAO;
-import mail.main.MainPage;
-import mail.session.SignInSession;
-import mail.signinout.SignOutPage;
+import tour.account.AccountDAO;
+import tour.main.MainPage;
+import tour.session.SignInSession;
+import tour.signinout.SignOutPage;
 import org.apache.wicket.Session;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;

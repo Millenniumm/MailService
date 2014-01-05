@@ -1,8 +1,8 @@
-package mail.signinout;
+package tour.signinout;
 
-import mail.main.MainPage;
-import mail.registration.RegistrationPage;
-import mail.session.SignInSession;
+import tour.main.MainPage;
+import tour.registration.RegistrationPage;
+import tour.session.SignInSession;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;

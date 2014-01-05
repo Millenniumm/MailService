@@ -1,10 +1,10 @@
 package tour.profile;
 
 import java.util.List;
-import mail.account.Account;
-import mail.account.AccountDAO;
-import mail.menupanel.MenuPanel;
-import mail.session.SignInSession;
+import tour.account.Account;
+import tour.account.AccountDAO;
+import tour.menupanel.MenuPanel;
+import tour.session.SignInSession;
 import org.apache.wicket.Session;
 import org.apache.wicket.feedback.ComponentFeedbackMessageFilter;
 import org.apache.wicket.markup.html.WebPage;

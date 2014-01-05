@@ -1,4 +1,4 @@
-package mail.session;
+package tour.session;
 
 public interface AuthenticatedWebPage {
     

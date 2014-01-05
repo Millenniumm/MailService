@@ -1,4 +1,4 @@
-package mail.signinout;
+package tour.signinout;
 
 import org.apache.wicket.markup.html.WebPage;
 import tour.header.HeaderPanel;

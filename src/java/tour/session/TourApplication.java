@@ -1,7 +1,7 @@
-package mail.session;
+package tour.session;
 
-import mail.main.MainPage;
-import mail.signinout.SignInPage;
+import tour.main.MainPage;
+import tour.signinout.SignInPage;
 import org.apache.wicket.Component;
 import org.apache.wicket.Page;
 import org.apache.wicket.RestartResponseAtInterceptPageException;
@@ -14,7 +14,7 @@ import org.apache.wicket.request.Response;
 import org.apache.wicket.request.component.IRequestableComponent;
 
 
-public class MailApplication extends WebApplication {
+public class TourApplication extends WebApplication {
 
     @Override
     public Class<? extends Page> getHomePage() {

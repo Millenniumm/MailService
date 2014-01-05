@@ -12,7 +12,7 @@ import tour.order.models.Tour;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import mail.dbconnection.DBConnection;
+import tour.dbconnection.DBConnection;
 import tour.order.models.Order;
 
 /**

@@ -1,4 +1,4 @@
-package mail.account;
+package tour.account;
 
 public class Account {
 

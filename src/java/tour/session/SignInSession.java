@@ -1,8 +1,8 @@
-package mail.session;
+package tour.session;
 
 import java.util.Iterator;
-import mail.account.Account;
-import mail.account.AccountDAO;
+import tour.account.Account;
+import tour.account.AccountDAO;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.request.Request;

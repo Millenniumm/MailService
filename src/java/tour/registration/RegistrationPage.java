@@ -1,8 +1,8 @@
-package mail.registration;
+package tour.registration;
 
-import mail.account.Account;
-import mail.account.AccountDAO;
-import mail.signinout.SignInPage;
+import tour.account.Account;
+import tour.account.AccountDAO;
+import tour.signinout.SignInPage;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;

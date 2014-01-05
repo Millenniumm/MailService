@@ -6,7 +6,7 @@
 package tour.admin.functions;
 
 import java.util.List;
-import mail.menupanel.MenuPanel;
+import tour.menupanel.MenuPanel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;

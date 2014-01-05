@@ -1,12 +1,12 @@
-package mail.main;
+package tour.main;
 
 import java.util.ArrayList;
 import java.util.List;
-import mail.base.BasePage;
-import mail.session.AuthenticatedWebPage;
-import mail.menupanel.MenuPanel;
-import mail.session.SignInSession;
+import tour.session.AuthenticatedWebPage;
+import tour.menupanel.MenuPanel;
+import tour.session.SignInSession;
 import org.apache.wicket.Session;
+import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
@@ -29,7 +29,7 @@ import tour.order.models.Order;
  *
  * @author Valentin
  */
-public final class MainPage extends BasePage implements AuthenticatedWebPage {
+public final class MainPage extends WebPage implements AuthenticatedWebPage {
 
     public MainPage() {
         final PageParameters pageParams = new PageParameters();

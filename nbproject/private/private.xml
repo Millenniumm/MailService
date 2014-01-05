@@ -3,14 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/order/OrderPage.html</file>
-            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/DeleteOrder.html</file>
             <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/CreateOrderForUser.java</file>
-            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/profile/Profile.html</file>
-            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/profile/Profile.java</file>
-            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/order/OrderPage.java</file>
             <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/CreateOrderForUser.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/profile/Profile.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/profile/Profile.html</file>
             <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/DeleteOrder.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/DeleteOrder.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/profile/history/UserOrderHistory.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/profile/history/UserOrderHistory.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/order/OrderDao.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/registration/RegistrationPage.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/registration/RegistrationPage.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/signinout/SignInPage.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/signinout/SignInPage.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/order/models/Country.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/main/MainPage.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/main/MainPage.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/session/SignInSession.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/session/AuthenticatedWebPage.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/header/HeaderPanel.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/header/HeaderPanel.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/SearchOrders.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/admin/functions/SearchOrders.html</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/src/java/tour/session/TourApplication.java</file>
+            <file>file:/C:/Users/Deniss/Documents/NetBeansProjects/MailService/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

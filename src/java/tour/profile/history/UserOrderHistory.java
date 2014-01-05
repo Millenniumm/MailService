@@ -7,8 +7,8 @@
 package tour.profile.history;
 
 import java.util.List;
-import mail.menupanel.MenuPanel;
-import mail.session.SignInSession;
+import tour.menupanel.MenuPanel;
+import tour.session.SignInSession;
 import org.apache.wicket.Session;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;

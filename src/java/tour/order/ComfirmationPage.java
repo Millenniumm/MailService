@@ -5,8 +5,8 @@
  */
 package tour.order;
 
-import mail.main.MainPage;
-import mail.menupanel.MenuPanel;
+import tour.main.MainPage;
+import tour.menupanel.MenuPanel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;

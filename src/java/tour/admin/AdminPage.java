@@ -1,4 +1,3 @@
-
 package tour.admin;
 
 import tour.main.MainPage;
@@ -10,10 +9,7 @@ import tour.admin.functions.CreateOrderForUser;
 import tour.admin.functions.DeleteOrder;
 import tour.admin.functions.SearchOrders;
 
-/**
- *
- * @author Deniss
- */
+
 public final class AdminPage extends WebPage {
 
     public AdminPage() {
